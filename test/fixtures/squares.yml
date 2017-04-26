@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  square_id: MyString
+  square_type: 1
+  square_description: MyText
+  color: MyString
+  school_id: 1
+
+two:
+  square_id: MyString
+  square_type: 1
+  square_description: MyText
+  color: MyString
+  school_id: 1

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2017-04-26 21:28:23
+  end_time: 2017-04-26 21:28:23
+  session_teacher: 1
+  session_student: 1
+
+two:
+  start_time: 2017-04-26 21:28:23
+  end_time: 2017-04-26 21:28:23
+  session_teacher: 1
+  session_student: 1
