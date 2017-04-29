@@ -1,3 +1,6 @@
+# author: Kevin M
+# Teacher model, validates the presence of various properties, but nothing else
+#  right now.
 class Teacher < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   

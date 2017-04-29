@@ -1,3 +1,6 @@
+# author: Kevin M
+# Testing for the teachers controller. The first two are just scaffold tests,
+#  the rest are mine.
 require 'test_helper'
 
 class TeachersControllerTest < ActionDispatch::IntegrationTest
