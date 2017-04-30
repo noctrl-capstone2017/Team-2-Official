@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :teachers
   
-  root 'application#hello'
+  resources :teachers
   get '/index', to: 'static_pages#index'
+  root 'static_pages#index'
+
 end

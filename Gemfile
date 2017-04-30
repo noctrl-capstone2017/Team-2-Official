@@ -25,5 +25,11 @@ group :production do
   gem 'pg', '0.18.4'
 end
 
+#Added rails-controller-testing - Kevin M
+#Required for testing assert_template.
+group :test do
+  gem 'rails-controller-testing', '0.1.1'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
