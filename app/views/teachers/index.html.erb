@@ -1,45 +1,55 @@
-<!--Author: Kevin M-->
-<!--Placeholder, just scaffolding HTML code-->
-<p id="notice"><%= notice %></p>
+<!-- page header -->
+<div class="page-header vertical-align">
+	<p id="notice"><%= notice %></p>
+	<div class="col-xs-11">
+		<h2>All Teachers<small> - manage teachers at TPTE</small></h2><!-- Dynamically fills in with school id -->
+	</div>
+	<div class="col-xs-1 center-block">
+		<div class="header-sq i-plum" title="Bianca17">
+			<span class="fa fa-apple fa-3x teacher-icon"></span>
+		</div>
+	</div>
+</div><!--End page header-->
 
-<h1>Teachers</h1>
+	<!--New Teacher Button-->
+<div class="row first-content-row">
+	<div class="col-xs-3">
+		<form action="">
+			<button type="submit" class="col-sm-offset-1 btn btn-lg btn-success"><i class="fa fa-plus-square-o"></i>  
+			New Teacher</button>
+			<br>WARNING! The delete button doesn't work yet! It won't be here, anyway. -Kevin M
+		</form>
+	</div><!--End col-->
+</div><!--End row -->
 
-<table>
-  <thead>
-    <tr>
-      <th>User name</th>
-      <th>Teacher icon name</th>
-      <th>Teacher name</th>
-      <th>Teacher email</th>
-      <th>Admin powers</th>
-      <th>Analysis powers</th>
-      <th>Teacher description</th>
-      <th>Color</th>
-      <th>School</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teachers.each do |teacher| %>
-      <tr>
-        <td><%= teacher.user_name %></td>
-        <td><%= teacher.teacher_icon_name %></td>
-        <td><%= teacher.teacher_name %></td>
-        <td><%= teacher.teacher_email %></td>
-        <td><%= teacher.admin_powers %></td>
-        <td><%= teacher.analysis_powers %></td>
-        <td><%= teacher.teacher_description %></td>
-        <td><%= teacher.color %></td>
-        <td><%= teacher.school_id %></td>
-        <td><%= link_to 'Show', teacher %></td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+ <!--Teacher display area -->
+<table class="table table-striped table-hover table-responsive teachers-table">
+	<thead>
+		<tr>
+			<th class="col-xs-1">Icon</th>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Admin</th>
+			<th>Last Login</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @teachers.each do |teacher| %>
+		<tr data-link="/teachers/<%= teacher.id %>"> <!-- This is pretty rough, fix it up later -->
+			<td>
+				<div class="table-sq i-plum" title="<%= teacher.user_name %>">
+					<span class="fa fa-apple fa-2x table-icon"></span>
+				</div>
+			</td>
+			<td><p class="listText"><%= teacher.user_name %></p></td>
+			<td><p class="listText"><span><%= teacher.teacher_name %></span></p></td>
+			<td><p class="listText"><span><%= teacher.admin_powers %></span></p></td>
+			<!--Don't worry, this messy line of code is placeholder.-->
+			<td><p class="listText"><span><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %><br><%= link_to 'Show', teacher %><br><%= link_to 'Edit', edit_teacher_path(teacher) %></span></p></td>
+		</tr>
+		<% end %>
+	</tbody>
 </table>
 
-<br>
-
+<!-- Also placeholder -->
 <%= link_to 'New Teacher', new_teacher_path %>
