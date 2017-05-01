@@ -34,7 +34,7 @@
 	</thead>
 	<tbody>
 		<% @teachers.each do |teacher| %>
-		<tr data-link="">
+		<tr data-link="/teachers/<%= teacher.id %>">
 			<td>
 				<div class="table-sq i-plum" title="<%= teacher.user_name %>">
 					<span class="fa fa-apple fa-2x table-icon"></span>
@@ -44,7 +44,7 @@
 			<td><p class="listText"><span><%= teacher.teacher_name %></span></p></td>
 			<td><p class="listText"><span><%= teacher.admin_powers %></span></p></td>
 			<!--Don't worry, this messy line of code is placeholder.-->
-			<td><p class="listText"><span><%= link_to 'Show', teacher %><br><%= link_to 'Edit', edit_teacher_path(teacher) %><br><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></span></p></td>
+			<td><p class="listText"><span><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %><br><%= link_to 'Show', teacher %><br><%= link_to 'Edit', edit_teacher_path(teacher) %></span></p></td>
 		</tr>
 		<% end %>
 	</tbody>
