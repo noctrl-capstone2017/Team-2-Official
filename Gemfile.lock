@@ -39,15 +39,11 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
-<<<<<<< HEAD
-=======
     autoprefixer-rails (6.7.7.2)
       execjs
-    bindex (0.5.0)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
->>>>>>> Teacher_KevinMorgan
     builder (3.2.3)
     byebug (9.0.0)
     coffee-rails (4.2.1)
@@ -166,7 +162,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
+  bootstrap-sass (= 3.3.6)
   byebug (= 9.0.0)
   coffee-rails (= 4.2.1)
   jbuilder (= 2.4.1)
@@ -175,16 +171,6 @@ DEPENDENCIES
   pg (= 0.18.4)
   puma (= 3.4.0)
   rails (= 5.0.1)
-=======
-  bootstrap-sass (= 3.3.6)
-  byebug
-  coffee-rails (~> 4.2)
-  jbuilder (~> 2.5)
-  jquery-rails
-  listen (~> 3.0.5)
-  puma (~> 3.0)
-  rails (~> 5.0.1)
->>>>>>> Teacher_KevinMorgan
   rails-controller-testing (= 0.1.1)
   sass-rails (= 5.0.6)
   spring (= 1.7.2)
