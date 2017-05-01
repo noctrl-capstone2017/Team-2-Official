@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_icon_name: MyString
+  student_contact_info: MyString
+  student_description: MyText
+  student_icon: MyString
+  color: MyString
+  school_id: 1
+  student_name: MyString
+
+two:
+  student_icon_name: MyString
+  student_contact_info: MyString
+  student_description: MyText
+  student_icon: MyString
+  color: MyString
+  school_id: 1
+  student_name: MyString

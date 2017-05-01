@@ -1,0 +1,2 @@
+class RosterStudent < ApplicationRecord
+end

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student icon name:</strong>
+  <%= @student.student_icon_name %>
+</p>
+
+<p>
+  <strong>Student contact info:</strong>
+  <%= @student.student_contact_info %>
+</p>
+
+<p>
+  <strong>Student description:</strong>
+  <%= @student.student_description %>
+</p>
+
+<p>
+  <strong>Student icon:</strong>
+  <%= @student.student_icon %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @student.color %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @student.school_id %>
+</p>
+
+<p>
+  <strong>Student name:</strong>
+  <%= @student.student_name %>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>

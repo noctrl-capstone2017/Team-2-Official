@@ -1,0 +1,2 @@
+class RosterSquare < ApplicationRecord
+end

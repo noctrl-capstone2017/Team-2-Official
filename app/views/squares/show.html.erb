@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Square:</strong>
+  <%= @square.square_id %>
+</p>
+
+<p>
+  <strong>Square type:</strong>
+  <%= @square.square_type %>
+</p>
+
+<p>
+  <strong>Square description:</strong>
+  <%= @square.square_description %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @square.color %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @square.school_id %>
+</p>
+
+<%= link_to 'Edit', edit_square_path(@square) %> |
+<%= link_to 'Back', squares_path %>

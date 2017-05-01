@@ -1,0 +1,72 @@
+<%= form_for(teacher) do |f| %>
+  <% if teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+
+      <ul>
+      <% teacher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_name %>
+    <%= f.text_field :user_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :teacher_icon_name %>
+    <%= f.text_field :teacher_icon_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :teacher_name %>
+    <%= f.text_field :teacher_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :teacher_email %>
+    <%= f.text_field :teacher_email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :admin_powers %>
+    <%= f.check_box :admin_powers %>
+  </div>
+
+  <div class="field">
+    <%= f.label :analysis_powers %>
+    <%= f.check_box :analysis_powers %>
+  </div>
+
+  <div class="field">
+    <%= f.label :teacher_description %>
+    <%= f.text_area :teacher_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color %>
+    <%= f.text_field :color %>
+  </div>
+
+  <div class="field">
+    <%= f.label :school_id %>
+    <%= f.number_field :school_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :teacher_password %>
+    <%= f.text_field :teacher_password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :teacher_password_confirmation %>
+    <%= f.text_field :teacher_password_confirmation %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

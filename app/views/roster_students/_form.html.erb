@@ -1,0 +1,27 @@
+<%= form_for(roster_student) do |f| %>
+  <% if roster_student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(roster_student.errors.count, "error") %> prohibited this roster_student from being saved:</h2>
+
+      <ul>
+      <% roster_student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :student_id %>
+    <%= f.number_field :student_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :teacher_id %>
+    <%= f.number_field :teacher_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

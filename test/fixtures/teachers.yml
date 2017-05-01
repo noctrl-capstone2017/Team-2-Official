@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_name: MyString
+  teacher_icon_name: MyString
+  teacher_name: MyString
+  teacher_email: MyString
+  admin_powers: false
+  analysis_powers: false
+  teacher_description: MyText
+  color: MyString
+  school_id: 1
+  teacher_password: MyString
+  teacher_password_confirmation: MyString
+
+two:
+  user_name: MyString
+  teacher_icon_name: MyString
+  teacher_name: MyString
+  teacher_email: MyString
+  admin_powers: false
+  analysis_powers: false
+  teacher_description: MyText
+  color: MyString
+  school_id: 1
+  teacher_password: MyString
+  teacher_password_confirmation: MyString

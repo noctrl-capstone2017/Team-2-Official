@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Squares</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Square</th>
+      <th>Square type</th>
+      <th>Square description</th>
+      <th>Color</th>
+      <th>School</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @squares.each do |square| %>
+      <tr>
+        <td><%= square.square_id %></td>
+        <td><%= square.square_type %></td>
+        <td><%= square.square_description %></td>
+        <td><%= square.color %></td>
+        <td><%= square.school_id %></td>
+        <td><%= link_to 'Show', square %></td>
+        <td><%= link_to 'Edit', edit_square_path(square) %></td>
+        <td><%= link_to 'Destroy', square, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Square', new_square_path %>

@@ -1,0 +1,2 @@
+class SessionEvent < ApplicationRecord
+end

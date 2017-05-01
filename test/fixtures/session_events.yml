@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  behavior_square_id: 1
+  square_press_time: 2017-05-01 23:41:59
+  duration_end_time: 2017-05-01 23:41:59
+  session_id: 1
+
+two:
+  behavior_square_id: 1
+  square_press_time: 2017-05-01 23:41:59
+  duration_end_time: 2017-05-01 23:41:59
+  session_id: 1

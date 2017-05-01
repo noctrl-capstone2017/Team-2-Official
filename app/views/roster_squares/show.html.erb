@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Square:</strong>
+  <%= @roster_square.square_id %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @roster_square.student_id %>
+</p>
+
+<%= link_to 'Edit', edit_roster_square_path(@roster_square) %> |
+<%= link_to 'Back', roster_squares_path %>
