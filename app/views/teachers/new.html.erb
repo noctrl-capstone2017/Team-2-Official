@@ -1,3 +1,4 @@
+<!--Adapted for use by Kevin M. -->
 <div class="page-header cap17-header vertical-align">
 	<div class="col-xs-11">
 		<h2>New Teacher <small>- add a new teacher to TPTE</small></h2>
@@ -11,9 +12,17 @@
 <!-- Teacher profile area -->
 <%= form_for(@teacher) do |f| %>
 
-<p>Note from Kevin M: Cannot currently create teachers this way due to no school_id entry.</p>
-<p>Everything is working, but we're going to pull the ID from the admin accessing this page.</p>
-<p>In the meantime, if you want to make a teacher, use the rails console.</p>
+<!-- Placeholder school_id input. REMOVE LATER!! -->
+<div class="row form-row">
+<div class="col-xs-1 col-xs-offset-1"><h4>school_id<br>placeholder</h4></div>
+<div class="col-xs-4 col-xs-offset-1">
+		<%= f.number_field :school_id, class: 'form-control'%>
+	</div>
+</div>   <!-- row -->
+
+<p>Note from Kevin M: The school_id will not be here in the future.</p>
+<p>We're going to pull the ID from the admin accessing this page.</p>
+<p>In the meantime, just so you can make teachers, it's an option here.</p>
 <br> Errors: <%= @teacher.errors.full_messages %>
 
 <div class="row form-row">
@@ -104,16 +113,8 @@
 	<div class="col-sm-1 col-sm-offset-1"> 
 		<%= f.submit "Add New Teacher", class: "btn btn-success" %>
 	</div>
+<% end %>
 	<div class="col-sm-1 col-sm-offset-1"> 
-		<button type="submit" class="btn btn-danger">Cancel</button>
+		<%= button_to "Cancel", teachers_path, :class => "btn btn-danger", :method => :get %>
 	</div>
 </div>
-<% end %>
-
-<!--Author: Kevin M-->
-<!--Placeholder, just scaffolding HTML code
-<h1>New Teacher</h1>
-
-< %= render 'form', teacher: @teacher %>
-
-< %= link_to 'Back', teachers_path %>-->
