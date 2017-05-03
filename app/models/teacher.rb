@@ -1,4 +1,8 @@
+# author: Kevin M
+# Teacher model, validates the presence of various properties, but nothing else
+#  right now.
 class Teacher < ApplicationRecord
+
   validates :user_name,  presence: true, length: { maximum: 75 }
   validates :teacher_icon_name,  presence: true, length: { maximum: 15 }
   validates :teacher_name, presence: true, length: { maximum: 75 }
