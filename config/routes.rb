@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'login_session/new'
+  get 'teachers/home'
   resources :roster_students
   resources :roster_squares
   resources :session_events
@@ -8,4 +10,7 @@ Rails.application.routes.draw do
   resources :teachers
   resources :schools
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  # route to home page
+ 
 end
