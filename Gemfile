@@ -41,7 +41,6 @@ gem 'bootstrap-sass', '3.3.6'
 
 
 group :development, :test do
-  gem 'sqlite3', '1.3.12'
   gem 'byebug',  '9.0.0', platform: :mri
 end
 
