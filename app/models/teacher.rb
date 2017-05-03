@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-class Teacher < ApplicationRecord
-=======
 # author: Kevin M
 # Teacher model, validates the presence of various properties, but nothing else
 #  right now.
@@ -15,5 +12,4 @@ class Teacher < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :color, presence: true
   validates :school_id, presence: true
->>>>>>> Team-2/master
 end
