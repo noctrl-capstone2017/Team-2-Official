@@ -53,15 +53,17 @@
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 content-col">
 
-			<!-- page header -->
-			<div class="page-header cap17-header">
-				<h2>All Students <small> - manage students at school TrngPte
-					<div class ="header-sq i-ltblue pull-right" title="Turning Pointe Autism Foundation">
-						<span class="fa fa-home fa-2x header-icon"></span>
-					</div>
-				</small>
-				</h2>
-			</div>   <!--page header-->
+		<!-- page header -->
+		<div class="page-header vertical-align">
+			<div class="col-xs-11">
+				<h2>All Students<small> - manage students at school TrngPte</small></h2><!-- Dynamically fills in with school id -->
+			</div>
+			<div class="col-xs-1 center-block">
+				<div class="header-sq i-ltblue" title="Turning Pointe Autism Foundation">
+					<span class="fa fa-home fa-3x teacher-icon"></span>
+				</div>
+			</div>
+		</div><!--End page header-->
 
 			<!-- new student button -->
 			<div class="row">
@@ -86,13 +88,23 @@
 					</tr>
 				</thead>
 				<tbody>
-
+					<% @student.each do |student| %>
+					<tr data-link="student2.html">
+						<td>
+							<div class=student.color title=student.student_icon_name>
+								<i class=student.student_icon></i>
+							</div>
+						</td>
+						<td><p class="listText"><span>Jimmy</span></p></td>
+						<td><p class="listText"><span>James S.</span></p></td>
+						<td><p class="listText"><span>Mon Apr 3, 2017</span></p></td>
+					</tr>
+				  <% end %>	
 				</tbody>
 			</table>
 
-		</div>   <!-- col -->
-	</div>   <!-- row -->
-</div>   <!-- container -->
+	</div><!--End content col-->
+</div><!--End container-->
 
 
 <!-- 5. Jquery: jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -117,3 +129,19 @@
 </body>
 </html>
 
+<!--<tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.student_icon_name %></td>
+        <td><%= student.student_contact_info %></td>
+        <td><%= student.student_description %></td>
+        <td><%= student.student_icon %></td>
+        <td><%= student.color %></td>
+        <td><%= student.school_id %></td>
+        <td><%= student.student_name %></td>
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>-->
