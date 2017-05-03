@@ -1,0 +1,317 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/***********************************************************
+* General CSS Stylesheet Document 
+* Written by: Debra Jensen
+************************************************************/
+/*********************************************************
+*  TEXT STYLING
+*********************************************************/
+
+@import url('https://fonts.googleapis.com/css?family=Hind|Rubik');
+h1, h2, h3, h4, h5, h6
+{
+	font-family: "Rubik", sans-serif;
+}
+
+p, a
+{
+	font-family:"Hind", sans-serif;
+}
+
+/*********************************************************
+*  BACKGROUND & CONTENT 
+* Creates a white div which holds all of the content on
+* top of the background image
+*********************************************************/
+body 
+{
+	background: lightgray url(geometry.png) repeat ; 
+}
+
+.content-col
+{
+	background-color: rgba(255,255,255,0.8);
+	border-radius: 10px;
+	padding-bottom: 2%;
+}
+.content-text {
+	font-size: 1.4em;
+	margin-left: 20px;
+}
+
+/*********************************************************
+*  ALIGNMENT
+* Handy for aligning two columns or divs. Use on a row div
+* http://stackoverflow.com/questions/20547819/vertical-align-with-bootstrap-3
+*********************************************************/
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.page-header .h1
+{
+	padding-left: 100px;
+}
+.cap17-header {
+	margin-bottom: 40px;
+}
+
+/*********************************************************
+*  NAVBAR STYLING
+*********************************************************/
+.navbar
+{
+	background: #2458B7;
+}
+.navbar a
+{
+	color:white;
+}
+.navbar .brand, .navbar .nav > li > a:hover
+{
+	color:white;
+	background-color:#97EDEC;
+}
+
+/*********************************************************
+*  ICON STYLING
+*********************************************************/
+.square
+{
+	height: 8em;
+	width: 8em;
+	display: flex;
+	flex-flow:column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 25px;
+}
+.square:hover
+{
+	-webkit-filter: brightness(90%);
+	-moz-filter: brightness(90%);
+	-o-filter:brightness(90%);
+}
+
+.square h1, .square h2,.square h3, .square h4, .square p
+{
+	color:#FFFFFF;
+}
+.student-icon
+{
+	font-size: 5em;
+	color: #FFFFFF;
+}
+.teacher-icon
+{
+	font-size: 5em;
+	color: #FFFFFF;
+}
+.icon-white
+{
+	color: #FFFFFF;
+}
+/* Used for teacher profile icon  and smaller student icons */
+.profile-sq
+{
+	height: 3.5em;
+	width: 3.5em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+}
+
+.b-square
+{
+	height: 8em;
+	width: 8em;
+	border-radius: 25px;
+
+}
+
+/*********************************************************
+*  PROF BILL is STYLIN'
+*  merge these into proper categories after the demo?
+*********************************************************/
+
+.header-sq
+{
+	height: 3.5em;
+	width: 3.5em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+}
+
+.header-icon {
+	color: white;
+}
+
+/* Action squares appear at the bottom of the page and take user to another page */
+.action-sq {
+	height: 6em;
+	width: 6em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+
+transition: all .2s ease-in-out;
+}
+.action-sq:hover {
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform:scale(1.1);
+	transform:scale(1.1);
+
+}
+.action-icon {
+	font-size: 6em;
+	color: white;
+}
+.action-icon:hover {
+
+}
+
+.logout-art {
+	padding-top: 2%;
+}
+.logout-art-text {
+	font-size: 1.4em;
+}
+.first-content-row {
+	padding-top: 20px;
+}
+
+/*********************************************************
+*  ACTION ROW SPACING
+*  Spacing and buttons
+*********************************************************/
+
+.action-icon-row {
+	padding-top: 40px;
+}
+.action-buttons-row {
+	padding-top: 40px;
+}
+
+/*********************************************************
+*  FORM SPACING
+*  Spacing 
+*********************************************************/
+.form-row {
+	padding-bottom: 5px;
+}
+.form-spacer-20 {
+	padding-top: 20px;
+}
+.table-sq
+{
+	height: 3em;
+	width: 3em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+}
+
+.table-icon
+{
+	font-size: 4em;
+	color: white;
+}
+.squares-row {
+	padding-bottom: 60px;
+}
+.add-rm-squares-row {
+	padding-bottom: 20px;
+}
+
+/*********************************************************
+*  TABLE STYLING
+*  Used for admin screens
+*********************************************************/
+.table-striped > tbody > tr:nth-of-type(odd)
+{
+ 
+}
+.table-striped > tbody > tr:hover td{
+  background-color: #FFEB65;
+}
+
+.schools-table {
+/*	width: 90%;
+	margin-left: 40px; */
+	margin-top: 40px;
+}
+.teachers-table {
+	margin-top: 40px;
+}
+
+/*********************************************************
+*  ICON COLORS
+* i-navy, i-ltblue, i-red, and i-yellow are also found in
+* our main color scheme
+*********************************************************/
+.i-gray
+{
+	background-color: #787676;
+}
+
+.i-navy
+{
+	background-color:#2458B7;
+}
+
+.i-red
+{
+	background-color: #EC514A;
+}
+.i-yellow
+{
+	background-color: #FFEB65;
+}
+
+.i-ltblue
+{
+	background-color:#97EDEC;
+}
+
+.i-ltorange
+{
+	background-color:#F8BD28;
+}
+.i-green
+{
+	background-color:#8BC04F;
+}
+.i-lavendar
+{
+	background-color: #8E7BB9;
+}
+.i-plum
+{
+	background-color: #B23F73;
+}
+.i-mint
+{
+	background-color:#5BC2A8;
+}
+.i-pink
+{
+	background-color:#E889B9;
+}
+.i-dkorange
+{
+	background-color:#E77F24;
+}
+.i-aqua
+{
+	background-color:#50C0E8;
+}.fa-3x {
+}
