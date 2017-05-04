@@ -1,3 +1,31 @@
-// Place all the styles related to the Sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@charset "UTF-8";
+/***********************************************************
+* Session CSS Stylesheet Document 
+* Styling specific to the behavior session screen
+* Written by: Debra Jensen
+************************************************************/
+
+/***********************************************************
+* BUTTON STYLING
+************************************************************/
+.noteBtn
+{
+	margin-right: 10px;
+	float:left;
+}
+
+/***********************************************************
+* BEHAVIOR SQUARES
+************************************************************/
+.behavior-row
+{
+	margin-top: 15px;
+}
+/***********************************************************
+* FLOAT RIGHT ROWS
+************************************************************/
+.btn-col
+{
+	float:right;
+	text-align: right;
+}
