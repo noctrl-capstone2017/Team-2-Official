@@ -12,6 +12,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get new" do
     get new_session_url
+    get login_path
     assert_response :success
   end
 
