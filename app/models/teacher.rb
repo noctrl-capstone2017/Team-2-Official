@@ -15,7 +15,7 @@ class Teacher < ApplicationRecord
 
 
  #Creates the relationship of what students belong to the teacher
-  #author Matthew OBzera + Alexander Pavia
+  #author Alexander Pavia
   has_many :active_relationships, class_name:  "RosterStudent",
                                   foreign_key: "teacher_id",
                                   dependent:   :destroy

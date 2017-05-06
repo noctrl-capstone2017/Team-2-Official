@@ -1,7 +1,12 @@
+<!--Author: Alexander Pavia -->
+<!--HTML provided by capstone17-->
 
 <div class="page-header vertical-align">
 	<div class="col-xs-11">
-		<h2>Bianca17's Students</h2><!-- Dynamically fills in with school id -->
+		<!-- Fill in teachers username-->
+		<h2> 
+		<%=%>
+		</h2><!-- Dynamically fills in with school id -->
 	</div>
 	<div class="col-xs-1 pull-right">
 		<div class="header-sq i-plum" >
@@ -73,13 +78,14 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="email">Student:</label>
 				<div class="col-sm-4">
+					<!--Select Dropdown menu with Student names -->
   <%= collection_select(:student, :student_id,Student.all, :id, :student_name) %>
 				</div>
 			</div>
 		</div>
 		<div class="form-group"> 
 			<div class="col-xs-3 text-center col-xs-offset-3">
-				<a href="session1.html" type="submit" class="btn btn-lg btn-primary"><i class="fa fa-clock-o"></i> Start Session</a>
+				<a href="/sessions/session1" type="submit" class="btn btn-lg btn-primary"><i class="fa fa-clock-o"></i> Start Session</a>
 			</div>
 			<div class="col-xs-3 text-center">
 				<a href="analysis1.html" type="submit" class="btn btn-lg btn-success"><i class="fa fa-line-chart"></i> Analyze Sessions</a>

@@ -9,7 +9,7 @@ Teacher.create!(user_name: "test",
                 teacher_description: "Teacher used for testing",
                 color: "red",
                 school_id: "1",
-                teacher_password: "test",
+                teacher_password: "testing",
                 teacher_password_confirmation: "test")
 
 10.times do |n|

@@ -14,6 +14,7 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
+     @teachers = Teacher.find(params[:id])
   end
 
   # GET /teachers/new
