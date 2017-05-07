@@ -13,7 +13,6 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
-    @teacher = Teacher.find(params[:id])
   end
 
   # GET /teachers/new
@@ -23,7 +22,12 @@ class TeachersController < ApplicationController
 
   # GET /teachers/1/edit
   def edit
-    @teacher = Teacher.find(params[:id])
+  end
+  
+  # GET /teachers/1/pword
+  # When sessions and stuff are in place, only the teacher that this is for will
+  # be able to access it. Not working yet.
+  def pword
   end
 
   # POST /teachers
