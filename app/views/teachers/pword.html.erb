@@ -24,12 +24,27 @@
     </div>
   <% end %>
 	
-	<!-- Teacher password -->
+	<!-- Existing password -->
 	<div class="row form-row">
-		<div class="col-sm-offset-1 col-sm-2"><h4>Password: </h4></div>
-	
+		<div class="col-sm-offset-1 col-sm-2"><h4>Current Password: </h4></div>
 		<div class="col-sm-4 col-sm-offset-0">
-			<%= f.password_field :password, class: 'form-control', id: 'Description' %>
+			<%= f.password_field :password, class: 'form-control', id: 'currPass' %>
+		</div>
+	</div>
+	
+	<!-- New password -->
+	<div class="row form-row">
+		<div class="col-sm-offset-1 col-sm-2"><h4>New Password: </h4></div>
+		<div class="col-sm-4 col-sm-offset-0">
+			<!--< %= f.password_field :password, class: 'form-control', id: 'newPass' %>-->
+		</div>
+	</div>
+	
+	<!-- New pass confirmation -->
+	<div class="row form-row">
+		<div class="col-sm-offset-1 col-sm-2"><h4>Confirm New Password: </h4></div>
+		<div class="col-sm-4 col-sm-offset-0">
+		<!--< %= f.password_field :password_confirmation, class: 'form-control', id: 'confPass' %>-->
 		</div>
 	</div>
 	
