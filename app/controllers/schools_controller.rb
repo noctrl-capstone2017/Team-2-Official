@@ -1,10 +1,10 @@
 class SchoolsController < ApplicationController
   before_action :set_school, only: [:show, :edit, :update, :destroy]
 
-  # GET /schools
+  #GET /schools
   # GET /schools.json
   def index
-    @schools = School.all
+    @schools = School.paginate(page: params[:page])
   end
 
   # GET /schools/1
