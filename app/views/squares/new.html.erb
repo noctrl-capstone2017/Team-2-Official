@@ -1,5 +1,12 @@
-<h1>New Square</h1>
-
-<%= render 'form', square: @square %>
-
-<%= link_to 'Back', squares_path %>
+<!-- page header -->
+<div class="page-header vertical-align">
+	<div class="col-xs-11">
+		<h2>New Square<small> - add a new behavior square to school TrngPte</small></h2><!-- Dynamically fills in with school id -->
+	</div>
+	<div class="col-xs-1 center-block">
+		<div class="header-sq i-ltblue" title="Turning Pointe Autism Foundation">
+			<span class="fa fa-home fa-3x teacher-icon"></span>
+		</div>
+	</div>
+</div><!--End page header-->
+<%= render 'form', square: @square, url: "new"%>

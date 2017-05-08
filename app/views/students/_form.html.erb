@@ -1,3 +1,4 @@
+<!--HTML taken from UX Demo Team, edited by Ricky Perez -->
 <%= form_for(student) do |f| %>
   <% if student.errors.any? %>
     <div id="error_explanation">
@@ -10,43 +11,108 @@
       </ul>
     </div>
   <% end %>
+  
+	<div class="col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 content-col">
+			<!-- Student ID field -->
+			<div class="row form-row">
+				<div class="col-xs-2 col-xs-offset-1"><h4> Student ID: </h4></div>
+		   		<div class="col-xs-2">
+		   			<!--Attempt to put in placeholder text, at the moment leaving fields empty just causes problems. -->
+		   			<% if url == "new" %>
+							<%= f.text_field :student_icon_name, class: "form-control"%>
+						<% else %>
+							<%= f.text_field :student_icon_name, class: "form-control", placeholder: @student.student_icon_name%>
+						<%end%>
+					</div>
+			</div>
+	
+			<!-- student name field -->
+			<div class="row form-row">
+	   		<div class="col-xs-1 col-xs-offset-1"><h4>Name: </h4></div>
+	   		<div class="col-xs-4 col-xs-offset-1">
+		   			<% if url == "new" %>
+							<%= f.text_field :student_name, class: "form-control"%>
+						<% else %>
+							<%= f.text_field :student_name, class: "form-control", placeholder: @student.student_name%>
+						<%end%>
+				</div>
+			</div>   <!-- row -->
+	
+				<!-- a little extra space after name/email -->
+			<div class=""form-spacer>	&nbsp;</div>
+	
+			<!-- student color field -->
+			<div class="row form-row">
+				<div class="col-xs-1 col-xs-offset-1"><h4>Color: </h4></div>
+				<div class="col-xs-4 col-xs-offset-1">
+          <%= f.select(:color, ['gray', 'navy','red','yellow',
+          'ltblue','ltorange','green','lavendar','plum','mint','pink',
+          'dkorange','aqua'])%>
+				</div>
+			</div>
+			
+			<!-- student icon field -->
+			<div class="row form-row">
+				<div class="col-xs-1 col-xs-offset-1"><h4>Icon: </h4></div>
+				<div class="col-xs-4 col-xs-offset-1">
+          <%= f.select(:student_icon, ['bug', 'car', 'puzzle-piece', 'flash',
+          'flask', 'futbol-o', 'gamepad', 'heart', 'leaf', 'paper-plane', 'paw',
+          'star', 'graduation-cap'])%>
+				</div>
+			</div>
+	
+			<!-- student contact info field -->
+			<div class="row form-row">
+				<div class="col-xs-1 col-xs-offset-1"><h4>Contact Info: </h4></div>
+				<div class="col-xs-6 col-xs-offset-1">
+		   			<% if url == "new" %>
+							<%= f.text_area :student_contact_info, class: "form-control"%>
+						<% else %>
+							<%= f.text_area :student_contact_info, class: "form-control", placeholder: @student.student_contact_info%>
+						<%end%>
+          </div>
+			</div>   <!-- row -->
+			
+			<!-- student description field -->
+			<div class="row form-row">
+				<div class="col-xs-1 col-xs-offset-1"><h4>Description: </h4></div>
+				<div class="col-xs-6 col-xs-offset-1">
+	        <div class="field">
+		   			<% if url == "new" %>
+							<%= f.text_area :student_description, class: "form-control"%>
+						<% else %>
+							<%= f.text_area :student_description, class: "form-control", placeholder: @student.student_description%>
+						<%end%>
+	        </div>
+				</div>
+			</div>     <!-- row -->
+	
+			<!-- school id field, will be made hidden in next sprint -->
+			<div class="row form-row">
+				<div class="col-xs-1 col-xs-offset-1"><h5>School ID:</h5></div>
+				<div class="col-xs-2 col-xs-offset-1">
+	        <div class="field">
+		   			<% if url == "new" %>
+							<%= f.text_field :school_id, class: "form-control"%>
+						<% else %>
+							<%= f.text_field :school_id, class: "form-control", placeholder: @student.school_id%>
+						<%end%>
+	        </div>
+				</div>
+			</div>     <!-- row -->
 
-  <div class="field">
-    <%= f.label :student_icon_name %>
-    <%= f.text_field :student_icon_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :student_contact_info %>
-    <%= f.text_field :student_contact_info %>
-  </div>
-
-  <div class="field">
-    <%= f.label :student_description %>
-    <%= f.text_area :student_description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :student_icon %>
-    <%= f.text_field :student_icon %>
-  </div>
-
-  <div class="field">
-    <%= f.label :color %>
-    <%= f.text_field :color %>
-  </div>
-
-  <div class="field">
-    <%= f.label :school_id %>
-    <%= f.number_field :school_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :student_name %>
-    <%= f.text_field :student_name %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row action-buttons-row">
+	  <div class="col-xs-6 col-xs-offset-1 text-center"> 
+	  	<!--Changed the text on button depending on link-->
+      <% if url == "new" %>
+        <%= f.submit "Add New Student", class: "btn btn-success"%>
+						&nbsp; &nbsp; &nbsp;
+	      <%= link_to 'Cancel', students_path, class: "btn btn-danger" %>
+      <% else %>
+        <%= f.submit "Save Changes", class: "btn btn-success"%>
+						&nbsp; &nbsp; &nbsp;
+	      <%= link_to 'Cancel', students_path, class: "btn btn-danger" %>        
+      <% end %>
+    </div>
   </div>
 <% end %>
