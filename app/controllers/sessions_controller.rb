@@ -24,17 +24,31 @@ class SessionsController < ApplicationController
   # POST /sessions
   # POST /sessions.json
   def create
-    @session = Session.new(session_params)
+    @session = Session.new(session_params)  
     
-    respond_to do |format|
-      if @session.save
-        format.html { redirect_to @session, notice: 'Session was successfully created.' }
-        format.json { render :show, status: :created, location: @session }
-      else
-        format.html { render :new }
-        format.json { render json: @session.errors, status: :unprocessable_entity }
-      end
+    # Steven Royster: Thank you previous capstone class. (Does not authenticate properly yet...) 
+    teacher = Teacher.where(:user_name => params[:session][:user_name].downcase).first
+    if teacher && teacher.authenticate(params[:session][:teacher_password])
+      log_in teacher
+      teacher['last_login'] = Time.now.to_datetime
+      teacher.save
+      flash[:success] = "Welcome back #{teacher.user_name}!"
+      redirect_to login_path
+    else
+      # Otherwise, keep them on the login page.
+      flash.now[:danger] = 'Invalid username or password'
+      render 'new'
     end
+    
+      # respond_to do |format|
+      #   if @session.save
+      #     format.html { redirect_to @session, notice: 'Session was successfully created.' }
+      #     format.json { render :show, status: :created, location: @session }
+      #   else
+      #     format.html { render :new }
+      #     format.json { render json: @session.errors, status: :unprocessable_entity }
+      #   end
+      # end
   end
 
   # PATCH/PUT /sessions/1

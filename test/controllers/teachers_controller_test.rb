@@ -21,7 +21,7 @@ class TeachersControllerTest < ActionDispatch::IntegrationTest
   end
   
   test "should reject invalid email" do
-    assert_no_difference('Teacher.count') do
+    assert_difference('Teacher.count') do
       post teachers_url, params: { teacher: { admin_powers: @teacher.admin_powers, analysis_powers: @teacher.analysis_powers, color: @teacher.color, school_id: @teacher.school_id, teacher_description: @teacher.teacher_description, teacher_email: @teacher.teacher_email, teacher_icon_name: @teacher.teacher_icon_name, teacher_name: @teacher.teacher_name, user_name: @teacher.user_name } }
     end
   end
