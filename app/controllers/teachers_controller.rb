@@ -13,9 +13,33 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
-    @teacher = Teacher.find(params[:id])
   end
 
+#author: Matthew O & Alex Pavia
+  def home
+    @teacher = Teacher.find(params[:id])
+    @top_students = Student.where(id: Session.where(session_teacher: @teacher.id).group('session_student').order('count(*)').select('session_student').limit(8))
+    if params[:start_session]
+        @session = Session.new
+        @session.session_teacher = @teacher.id
+        @session.session_student = params[:student_id]
+        @session.start_time = Time.now.strftime("%H:%M:%S")
+        
+        
+        respond_to do |format|
+          if @session.save
+            format.html { redirect_to @session, notice: 'Session was successfully created.' }
+            format.json { render :show, status: :created, location: @session }
+          else
+            format.html { render :new }
+            format.json { render json: @session.errors, status: :unprocessable_entity }
+          end
+        end
+    elsif params[:analyze]
+        # Currently unimplemented will direct to analysis page for the selected student
+    end
+  end
+  
   # GET /teachers/new
   def new
     @teacher = Teacher.new
