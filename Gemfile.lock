@@ -47,6 +47,9 @@ GEM
     bootstrap (4.0.0.alpha3)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.0)
     coderay (1.1.1)
@@ -200,8 +203,8 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (= 3.1.11)
-  bootstrap-sass (= 3.3.6)
   bootstrap (= 4.0.0.alpha3)
+  bootstrap-sass (= 3.3.6)
   byebug (= 9.0.0)
   coffee-rails (~> 4.2)
   faker (= 1.6.6)
