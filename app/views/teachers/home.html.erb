@@ -20,17 +20,15 @@
 	<!--Student Roster Area -->
 	<div id="student-roster">
 	<!--Student display area: shows the last 8 students teacher worked with -->
-	<div class="row students-row">
 	<% Student.first(8).each do |student| %>
 	<div class="col-xs-3 text-center">
-	 <div class ="square i-red center-block">
-	    <!-- Need to find a way to generate the square color/icon name for each-->
-	    <span class="fa fa-bicycle fa-5x student-icon "></span>
-	 </div>
-	 <p><span class="student-icon-text"><%=student.student_name %></span></p>
-	</div>
-	<!--End Student Roster -->
-	<%end%>
+           <div class =" square i-<%= student.color %> center-block">
+               <span class="fa fa-<%= student.student_icon %> fa-5x student-icon "></span>
+           </div>
+           <p><span class="student-icon-text"><%= student.student_name %></span></p>
+       </div>    <!-- col -->
+   <%end%>
+   	<!--End Student Roster -->
 	<!-- Search Form should populate with student name on selection -->
 	<!-- All students who are assigned to teacher will populate here -->
 	<!-- horizontal form help from:	www.w3schools.com/bootstrap/bootstrap_forms.asp -->
@@ -45,7 +43,7 @@
 	          </div>
 	       </div>
 	    </div>
-	  <div class="form-group"> 
+	 <div class="form-group"> 
 			<div class="col-xs-3 text-center col-xs-offset-3">
 				<%= button_tag(type: 'submit', class: "btn btn-lg btn-primary", name: 'start_session') do %>
 					<i class="fa fa-clock-o"></i>  Start Session
@@ -59,3 +57,5 @@
 		</div>
 	</form>
 </div>   <!-- row -->
+
+
