@@ -32,11 +32,17 @@ end
 
 10.times do |n|
   name  = Faker::Name.name
-  Student.create!(student_icon_name: name,
-                  student_contact_info: "student contact info",
-                  student_description: "student description",
-                  student_icon: "temp",
-                  color: "red",
-                  school_id: 1,
-                  student_name: name)
+  Student.create!(student_icon_name: "test",
+                    student_contact_info: "student contact info",
+                    student_description: "student description",
+                    student_icon: "temp",
+                    color: "red",
+                    school_id: 1,
+                    student_name: name)
+end
+
+5.times do |n|
+  sid = n+1
+  RosterStudent.create!(teacher_id: 1,
+                        student_id: sid)
 end

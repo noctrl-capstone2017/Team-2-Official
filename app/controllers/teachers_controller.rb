@@ -14,9 +14,28 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
-     @teachers = Teacher.find(params[:id])
+     @teacher = Teacher.find(params[:id])
   end
 
+  def home
+    @teacher = Teacher.find(params[:id])
+    if params[:start_session]
+        @session = Session.new
+        @session.session_teacher = @teacher.id
+        @session.session_student = params[:student_id]
+        respond_to do |format|
+          if @session.save
+            format.html { redirect_to @session, notice: 'Session was successfully created.' }
+            format.json { render :show, status: :created, location: @session }
+          else
+            format.html { render :new }
+            format.json { render json: @session.errors, status: :unprocessable_entity }
+          end
+        end
+    elsif params[:analyze]
+        # B was pressed
+    end
+  end
   # GET /teachers/new
   def new
     @teacher = Teacher.new

@@ -1,24 +1,87 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Start time:</strong>
-  <%= @session.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @session.end_time %>
-</p>
-
-<p>
-  <strong>Session teacher:</strong>
-  <%= @session.session_teacher %>
-</p>
-
-<p>
-  <strong>Session student:</strong>
-  <%= @session.session_student %>
-</p>
-
-<%= link_to 'Edit', edit_session_path(@session) %> |
-<%= link_to 'Back', sessions_path %>
+<!--Alexander Pavia, used Matthew O's show.html.erb -->
+<%= javascript_include_tag "sidebar.js" %>
+<!--Side bar -->
+<div id="mySidenav" class="sidenav">
+   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   <div class="col-md-12 text-center">
+      <div class ="square i-red center-block">
+         <span class="fa fa-bicycle fa-5x student-icon"></span>
+      </div>
+      <h3><%= Student.find(@session.session_student).student_name %></h3>
+      <p><%= @session.start_time %></p>
+      <button class="btn btn-primary btn-lg">End Session</button>
+   </div>
+</div>
+<!--End Sidebar -->
+<!--Top Buttons-->
+<div class="row">
+   <div class="col-xs-1">
+      <span onclick="openNav()"><i class="fa fa-chevron-circle-left fa-2x"></i></span>
+   </div>
+   <div class="col-xs-4 pull-right">
+      <button class="btn btn-lg btn-secondary noteBtn"><i class="fa fa-pencil-square-o icon-white fa-lg"></i> Notes</button>
+      <a href="session2.html" class="btn btn-primary btn-lg">End Session</a>
+   </div>
+</div>
+<!-- Main Content -->
+<div id="main">
+   <div class="container-fluid">
+      <!-- Behavior Square Area -->
+      <div class="row behavior-row">
+         <div class="col-sm-offset-1 col-xs-4 col-md-3">
+            <div class="square i-red text-center">
+               <div class="col-xs-12">
+                  <h4>AG (2)</h4>
+               </div>
+            </div>
+            <!--End Square-->
+         </div>
+         <!--End Col -->
+         <div class="col-sm-offset-1 col-xs-4 col-md-3">
+            <div class="square i-ltblue text-center">
+               <div class="col-xs-12">
+                  <h4>CRY (3)</h4>
+               </div>
+               <div class="col-xs-12">
+                  <span class="fa fa-clock-o fa-2x icon-white"></span>
+               </div>
+            </div>
+            <!--End Square-->
+         </div>
+         <!--End Col -->
+      </div>
+      <!--End Row-->
+      <div class="row behavior-row">
+         <div class="col-sm-offset-1 col-xs-4 col-md-3">
+            <div class="square i-yellow text-center">
+               <div class="col-xs-12">
+                  <h4>GT (0)</h4>
+               </div>
+            </div>
+            <!--End Square-->
+         </div>
+         <!--End Col-->
+         <div class="col-sm-offset-1 col-xs-4 col-md-3">
+            <div class="square i-navy text-center">
+               <div class="col-xs-12">
+                  <h4>YEL (0)</h4>
+               </div>
+               <div class="col-xs-12">
+                  <span class="fa fa-clock-o fa-2x icon-white"></span>
+               </div>
+            </div>
+            <!--End Square-->
+         </div>
+         <!--End Col -->
+      </div>
+      <!--End Row -->
+   </div>
+   <!--End Fluid Container-->
+</div>
+<!--End Main -->
+<!-- Additional Button Area -->
+<div class="row">
+   <div class="col-sm-2 pull-right">
+      <div class="btn btn-danger btn-lg">Undo</div>
+   </div>
+</div>

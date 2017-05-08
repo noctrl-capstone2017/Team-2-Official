@@ -6,10 +6,11 @@
 			<div class="col-md-12 text-center">
 		  		<div class ="square i-red center-block">
 					 <span class="fa fa-bicycle fa-5x student-icon"></span>
+					 <p><span class="student-icon-text"><%=action_name %></span></p>
 				</div>
 				<!-- show student name -->
-				<h3> <%= :teacher_name %> </h3>
-				<p><%= :start_time %></p>
+				<h3> <%= Teacher.first.teacher_name %> </h3>
+				<p><%= %></p>
 				<button class="btn btn-primary btn-lg">End Session</button>
 			</div>
 		</div><!--End Sidebar -->
@@ -122,5 +123,6 @@
 				});
 			});
 		</script>
+
 </body>
 </html>

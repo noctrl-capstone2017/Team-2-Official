@@ -1,94 +1,60 @@
-<!--Author: Alexander Pavia -->
-<!--HTML provided by capstone17-->
-
-<div class="page-header vertical-align">
-	<div class="col-xs-11">
-		<!-- Fill in teachers username-->
-		<h2> 
-		<%=%>
-		</h2><!-- Dynamically fills in with school id -->
+	<!--Author: Alexander Pavia -->
+	<!--HTML provided by capstone17-->
+	<div class="page-header vertical-align">
+	 <div class="col-xs-11">
+	    <!-- Fill in teachers username 
+	       I put the first teachers name
+	       for now -->
+	    <h2> 
+	       <%= Teacher.first.teacher_name %>
+	    </h2>
+	    <!-- Dynamically fills in with school id -->
+	 </div>
+	 <div class="col-xs-1 pull-right">
+	    <div class="header-sq i-plum" >
+	       <span class="fa fa-apple fa-3x teacher-icon"></span>
+	    </div>
+	 </div>
 	</div>
-	<div class="col-xs-1 pull-right">
-		<div class="header-sq i-plum" >
-			<span class="fa fa-apple fa-3x teacher-icon"></span>
-		</div>
+	<!--End page header-->
+	<!--Student Roster Area -->
+	<div id="student-roster">
+	<!--Student display area: shows the last 8 students teacher worked with -->
+	<div class="row students-row">
+	<% Student.first(8).each do |student| %>
+	<div class="col-xs-3 text-center">
+	 <div class ="square i-red center-block">
+	    <!-- Need to find a way to generate the square color/icon name for each-->
+	    <span class="fa fa-bicycle fa-5x student-icon "></span>
+	 </div>
+	 <p><span class="student-icon-text"><%=student.student_name %></span></p>
 	</div>
-</div><!--End page header-->
-<!--Student Roster Area -->
-<div id="student-roster"> <!--Student display area: shows the last 8 students teacher worked with -->
-	<div class="row students-row">
-		<div class="col-xs-3 text-center">
-		 <div class ="square i-red center-block">
-			 <span class="fa fa-bicycle fa-5x student-icon "></span>
-		  </div>
-		  <p><span class="student-icon-text">Jimmy</span></p>
-		</div>
-		<div class="col-xs-3 text-center">
-			<div class ="square i-navy center-block">
-				<span class="fa fa-child fa-5x student-icon"></span>
-			</div>
-			<p><span class="student-icon-text">TateM</span></p>
-		</div>   <!-- col -->
-		<div class="col-xs-3 text-center">
-			<div class ="square i-yellow center-block">
-				<span class="fa fa-futbol-o fa-5x student-icon"></span>
-			</div>
-			<p><span class="student-icon-text">SarahL2</span></p>
-		</div>   <!-- col -->
-		<div class="col-xs-3 text-center">
-			<div class ="square i-ltblue center-block">
-				<span class="fa fa-leaf fa-5x student-icon"></span>
-			</div>
-			<p><span class="student-icon-text">AllyW</span></p>
-		</div>   <!-- col -->
-	</div>   <!-- row -->
-	<div class="row students-row">
-		<div class="col-xs-3 text-center">
-			<div class ="square i-pink center-block">
-				<span class="fa fa-gamepad fa-5x student-icon"></span>
-			</div>
-			<p><span class="student-icon-text">EugeneB</span></p>
-		</div>   <!-- col -->
-		<div class="col-xs-3 text-center">
-			<div class =" square i-lavendar center-block">
-				<span class="fa fa-paper-plane fa-5x student-icon "></span>
-			</div>
-			<p><span class="student-icon-text">LexiP</span></p>
-		</div>	<!-- col -->
-		<div class="col-xs-3 text-center">
-			<div class ="square i-dkorange center-block">
-				<span class="fa fa-flash fa-5x student-icon"></span>
-			</div>
-			<p><span class="student-icon-text">JohnnyV</span></p>
-		</div>   <!-- col -->
-		<div class="col-xs-3 text-center">
-			<div class ="square i-green center-block">
-				<span class="fa fa-car fa-5x student-icon"></span>
-			</div>
-			<p><span class="student-icon-text ">WillieP</span></p>
-		</div>   <!-- col -->
-	</div>   <!-- row -->
-</div> <!--End Student Roster -->
-<!-- Search Form should populate with student name on selection -->
-<!-- All students who are assigned to teacher will populate here -->
-<!-- horizontal form help from:	www.w3schools.com/bootstrap/bootstrap_forms.asp -->
-<div class="row">
-	<form class="form-horizontal text-center action-buttons-row">
-		<div class="col-sm-offset-3">
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="email">Student:</label>
-				<div class="col-sm-4">
-					<!--Select Dropdown menu with Student names -->
-  <%= collection_select(:student, :student_id,Student.all, :id, :student_name) %>
-				</div>
-			</div>
-		</div>
-		<div class="form-group"> 
+	<!--End Student Roster -->
+	<%end%>
+	<!-- Search Form should populate with student name on selection -->
+	<!-- All students who are assigned to teacher will populate here -->
+	<!-- horizontal form help from:	www.w3schools.com/bootstrap/bootstrap_forms.asp -->
+	<div class="row">
+	 <form class="form-horizontal text-center action-buttons-row">
+	    <div class="col-sm-offset-3">
+	       <div class="form-group">
+	          <label class="control-label col-sm-2" for="email">Student:</label>
+	          <div class="col-sm-4">
+	             <!--Select Dropdown menu with Student names -->
+	             <%= collection_select(:student, :student_id,Student.all, :id, :student_name) %>
+	          </div>
+	       </div>
+	    </div>
+	  <div class="form-group"> 
 			<div class="col-xs-3 text-center col-xs-offset-3">
-				<a href="/sessions/session1" type="submit" class="btn btn-lg btn-primary"><i class="fa fa-clock-o"></i> Start Session</a>
+				<%= button_tag(type: 'submit', class: "btn btn-lg btn-primary", name: 'start_session') do %>
+					<i class="fa fa-clock-o"></i>  Start Session
+				<% end %>
 			</div>
 			<div class="col-xs-3 text-center">
-				<a href="analysis1.html" type="submit" class="btn btn-lg btn-success"><i class="fa fa-line-chart"></i> Analyze Sessions</a>
+				<%= button_tag(type: 'submit', class: "btn btn-lg btn-success", name: 'analyze') do %>
+					<i class="fa fa-line-chart"></i> Analyze Sessions
+				<% end %>
 			</div>
 		</div>
 	</form>
