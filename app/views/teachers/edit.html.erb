@@ -1,7 +1,4 @@
 <!--Adapted for use by Kevin M. -->
-<!--NOTE: This page is currently functionally the same as the show page.
-          When admin stuff is put in place, it'll direct them to this page,
-          instead of the show page, where they'll have more access.-->
 <div class="page-header cap17-header vertical-align">
 	<div class="col-xs-11">
 		<h2>Teacher profile for <%= @teacher.teacher_name %></h2>
@@ -107,7 +104,27 @@
 			<%= f.submit "Save Changes", class: "btn btn-success" %>
 		</div>
 <% end %>
-	<div class="col-sm-1 col-sm-offset-1"> 
-		<%= button_to "Cancel", teachers_path, :class => "btn btn-danger", :method => :get %>
+		<div class="col-sm-1 col-sm-offset-1"> 
+			<%= button_to "Cancel", teachers_path, :class => "btn btn-danger", :method => :get %>
+		</div>
 	</div>
+
+	<!--Action Icons -->
+<div class="row action-icon-row" style="margin-top: 40px;">
+	<div class="col-xs-2 col-xs-offset-1 text-center" title="Student Roster">
+		<div class ="action-sq i-red center-block">
+			<a href="teacher4.html"><span class="fa fa-child fa-4x student-icon"></span></a>
+		</div>
+		<p><a href="teacher4.html"><span class="student-icon-text">Student Roster</span></a></p>
+	</div>
+	<div class="col-xs-2 col-xs-offset-1 text-center" title="Change Password">
+		<div class ="action-sq i-navy center-block">
+			<a href="teacher5.html"><span class="fa fa-key fa-4x student-icon"></span></a>
+		</div>
+		<p><a href="teacher5.html"><span class="student-icon-text">Change Password</span></a></p>
+	</div>
+	
+	<p>Note from Kevin M: Still working out how to turn these into links while preserving the icons. 
+	Use teachers/id or teachers/id/pword to reach these pages, respectively.</p>
+	
 </div>

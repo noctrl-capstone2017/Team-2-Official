@@ -1,7 +1,6 @@
 <!--Adapted for use by Kevin M. -->
 <!-- page header -->
 <div class="page-header vertical-align">
-	<p id="notice"><%= notice %></p>
 	<div class="col-xs-11">
 		<h2>All Teachers<small> - manage teachers at TPTE</small></h2><!-- Dynamically fills in with school id -->
 	</div>
@@ -15,6 +14,7 @@
 	<!--New Teacher Button-->
 <div class="row first-content-row">
 	<div class="col-xs-3">
+		<p><%= notice %></p>
 		<%= button_to "New Teacher", new_teacher_path,
     :class => "col-sm-offset-1 btn btn-lg btn-success", :method => :get %>
 	</div><!--End col-->
@@ -33,7 +33,7 @@
 	</thead>
 	<tbody>
 		<% @teachers.each do |teacher| %>
-		<tr data-link="/teachers/<%= teacher.id %>"> <!-- This is pretty rough, fix it up later -->
+		<tr data-link=<%= edit_teacher_path(teacher.id) %>>
 			<td>
 				<div class="table-sq i-plum" title="<%= teacher.user_name %>">
 					<span class="fa fa-apple fa-2x table-icon"></span>

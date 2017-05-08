@@ -1,6 +1,5 @@
 # author: Kevin M
-# Testing for the teachers controller. The first two are just scaffold tests,
-#  the rest are mine.
+# Testing for the teachers controller.
 require 'test_helper'
 
 class TeachersControllerTest < ActionDispatch::IntegrationTest
@@ -16,7 +15,7 @@ class TeachersControllerTest < ActionDispatch::IntegrationTest
       teacher_email: "email@example.com", teacher_icon_name: @teacher.teacher_icon_name, 
       teacher_name: @teacher.teacher_name, user_name: @teacher.user_name } }
     end
-    assert_redirected_to teacher_url(Teacher.last)
+    assert_redirected_to "/teachers"
   end
 
   test "should show teacher" do
@@ -34,11 +33,11 @@ class TeachersControllerTest < ActionDispatch::IntegrationTest
     end
   end
   
-  test "should properly load existing info when loading profile" do
-    get teacher_url(@teacher)
-    assert_template "teachers/show"
+  test "should properly load existing info when loading a profile" do
+    get edit_teacher_url(@teacher)
+    assert_template "teachers/edit"
     #This is all that's necessary, since if one part of it fails, all of it does.
     assert_select 'h2', text: 'Teacher profile for ' + @teacher.teacher_name
-    
   end
+  
 end

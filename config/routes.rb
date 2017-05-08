@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root "login_session#new"
   
   get "teachers/:id/home",  to: 'teachers#home'
-  get "sessions/session1"
   get "sessions/end"
+  get 'teachers/:id/pword' => 'teachers#pword'
   
   resources :roster_students
   resources :roster_squares
