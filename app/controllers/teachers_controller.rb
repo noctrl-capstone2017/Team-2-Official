@@ -40,7 +40,11 @@ class TeachersController < ApplicationController
       end
     end
   end
-
+  
+  def admin2
+    @teachers = Teacher.all
+  end
+  
   # PATCH/PUT /teachers/1
   # PATCH/PUT /teachers/1.json
   def update

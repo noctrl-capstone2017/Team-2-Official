@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   get 'login_session/new'
   get 'teachers/home'
+  get  '/admin1', to: 'teachers#admin1'
+  get  '/admin2', to: 'teachers#admin2'
+  get  '/super1', to: 'teachers#super1'
+  get  '/super2', to: 'teachers#super2'
+  
   resources :roster_students
   resources :roster_squares
   resources :session_events
