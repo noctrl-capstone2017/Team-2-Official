@@ -9,7 +9,7 @@ window.onload = function () {
   {
       var timerSquare = new Object();
       timerSquare.Interval;
-      timerSquare.durationLog =  durationDivs[i].querySelector(".durationLog");
+      timerSquare.durationLog =  document.getElementById("eventLog");
       timerSquare.buttonStart =  durationDivs[i].querySelector((".button-start"));
       timerSquare.tensTxt = durationDivs[i].querySelector("#tens");
       timerSquare.secondsTxt = durationDivs[i].querySelector("#seconds");
@@ -32,6 +32,7 @@ window.onload = function () {
   {
       var counterSquare = new Object();
       counterSquare.countLabel =  counterDivs[i].querySelector(".count");
+      counterSquare.countLog = document.getElementById("eventLog");
       counterSquare.countButton =  counterDivs[i].querySelector((".counter"));      
       counterSquares.push(counterSquare);
   }
