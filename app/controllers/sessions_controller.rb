@@ -11,6 +11,18 @@ class SessionsController < ApplicationController
   # GET /sessions/1.json
   def show
     @student = Student.find(@session.session_student)
+    if params[:end_session]
+      
+      respond_to do |format|
+        if @session.update()
+          format.html { redirect_to @session, notice: 'Session was successfully updated.' }
+          format.json { render :end, status: :ok, location: @session }
+        end
+      end
+    end
+  end
+
+  def end_session
   end
 
   # GET /sessions/new

@@ -5,12 +5,14 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="col-md-12 text-center">
-        <div class ="square i-red center-block">
-             <span class="fa fa-bicycle fa-5x student-icon"></span>
+        <div class ="square i-<%= @student.color %> center-block">
+             <span class="fa fa-<%= @student.student_icon %> fa-5x student-icon"></span>
         </div>
         <h3><%= @student.student_name %></h3>
-        <p><%= @session.start_time %></p>
-        <button class="btn btn-primary btn-lg">End Session</button>
+        <p id="start_time"></p>
+        <%= button_tag(type: 'submit', class: "btn btn-lg btn-primary", name: 'end_session') do %>
+           End Session
+       <% end %>
     </div>
 </div><!--End Sidebar -->
 <!--Top Buttons-->
@@ -20,7 +22,9 @@
     </div>
     <div class="col-xs-4 pull-right">
         <button class="btn btn-lg btn-secondary noteBtn"><i class="fa fa-pencil-square-o icon-white fa-lg"></i> Notes</button>
-        <a href="session2.html" class="btn btn-primary btn-lg">End Session</a>
+        <%= button_tag(type: 'submit', class: "btn btn-lg btn-primary", name: 'end_session') do %>
+           End Session
+    <% end %>
     </div>
 </div>
 <!-- Main Content -->
@@ -31,63 +35,46 @@
             <% if index == 0 || index.even? %>
                 <div class="row behavior-row">
             <% end %>
-            <div class="wrapper frequency" name="frequencyDiv">
                 <div class="col-sm-offset-1 col-xs-4 col-md-3">
-                    <button class="counter">
-                        <div class="square i-red text-center">
-                            <div class="col-xs-12">
-                                <h4>AG <label class="count">0</label></h4>
-                            </div>
-                    </button>
-                    </div><!--End Square-->
+                    <% if square.square_type == 2 %>
+                        <div class="wrapper frequency" name="<%= square.id %>">
+                            <button class="counter">
+                                <div class="square i-<%= square.color %> text-center">
+                                    <div class="col-xs-12">
+                                            <h4><%= square.square_id %> <label class="count">0</label></h4>
+                                        </div>
+                                    </div><!--End Square-->
+                                </button>
+                            </div><!-- End Wrapper -->
+                        <% end %>
+                        <% if square.square_type == 1 %>
+                        <div class="wrapper interval" name="<%= square.id %>">
+                            <button class="counter">
+                                <div class="square i-<%= square.color %> text-center">
+                                    <div class="col-xs-12">
+                                            <h4><%= square.square_id %> <label class="count">0</label></h4>
+                                        </div>
+                                    </div><!--End Square-->
+                                </button>
+                            </div><!-- End Wrapper -->
+                        <% end %>
+                        <% if square.square_type == 0 %>
+                        <div class="wrapper duration" name="<%= square.id %>">
+                            <button class="button-start" id="button-start1">
+                                <div class="square i-<%= square.color %> text-center">
+                                    <div class="col-xs-12">
+                                            <h4><%= square.square_id %> </h4>
+                                            <p id = "timer"><span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></p>
+                                        </div>
+                                    </div><!--End Square-->
+                                </button>
+                            </div><!-- End Wrapper -->
+                        <% end %>
                 </div><!--End Col -->
-            </div><!-- End Wrapper -->
-            <% if index == 3 || index == 7 || index == (@student.squares.size-1) %>
+            <% if (index.odd?) || index == (@student.squares.size-1) %>
                 </div>   <!-- row -->
             <% end %>
           <% end %>
-        <div class="row behavior-row">
-        <div class="wrapper frequency" name="frequencyDiv">
-                <div class="col-sm-offset-1 col-xs-4 col-md-3">
-                    <button class="counter">
-                        <div class="square i-red text-center">
-                            <div class="col-xs-12">
-                                <h4>AG <label class="count">0</label></h4>
-                            </div>
-                    </button>
-                    </div><!--End Square-->
-                </div><!--End Col -->
-            </div><!-- End Wrapper -->
-            <div class="col-sm-offset-1 col-xs-4 col-md-3">
-                <div class="square i-ltblue text-center">
-                    <div class="col-xs-12">
-                        <h4>CRY (3)</h4>
-                    </div>
-                    <div class="col-xs-12">
-                        <span class="fa fa-clock-o fa-2x icon-white"></span>
-                    </div>
-                </div><!--End Square-->
-            </div><!--End Col -->
-        </div><!--End Row-->
-        <div class="row behavior-row">
-            <div class="col-sm-offset-1 col-xs-4 col-md-3">
-                <div class="square i-yellow text-center">
-                    <div class="col-xs-12">
-                        <h4>GT (0)</h4>
-                    </div>
-                </div><!--End Square-->
-            </div><!--End Col-->
-            <div class="col-sm-offset-1 col-xs-4 col-md-3">
-                <div class="square i-navy text-center">
-                    <div class="col-xs-12">
-                        <h4>YEL (0)</h4>
-                    </div>
-                    <div class="col-xs-12">
-                        <span class="fa fa-clock-o fa-2x icon-white"></span>
-                    </div>
-                </div><!--End Square-->
-            </div><!--End Col -->
-        </div><!--End Row -->
     </div><!--End Fluid Container-->
 </div><!--End Main -->
 <!-- Additional Button Area -->
@@ -95,4 +82,4 @@
     <div class="col-sm-2 pull-right">
         <div class="btn btn-danger btn-lg">Undo</div>
     </div>
-</div
+</div>

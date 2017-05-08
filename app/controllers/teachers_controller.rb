@@ -25,7 +25,8 @@ class TeachersController < ApplicationController
         @session = Session.new
         @session.session_teacher = @teacher.id
         @session.session_student = params[:student_id]
-        @session.start_time = Time.now.updated_at.localtime
+        @session.start_time = Time.now.strftime("%H:%M:%S")
+        
         
         respond_to do |format|
           if @session.save
