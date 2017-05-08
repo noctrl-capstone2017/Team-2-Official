@@ -5,17 +5,23 @@ class Teacher < ApplicationRecord
 
   attr_accessor :remember_token, :activation_token, :reset_token
 
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  
   validates :user_name,  presence: true, length: { maximum: 75 }
   validates :teacher_icon_name,  presence: true, length: { maximum: 15 }
   validates :teacher_name, presence: true, length: { maximum: 75 }
-  validates :teacher_email, presence: true, length: { maximum: 255 }
-  validates :teacher_description, presence: true
+  validates :teacher_email, presence: true, length: { maximum: 255 },
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
   validates :color, presence: true
-  
+
   validates :password_digest, presence: true, length: {minimum: 6 }
 
   # Steven Royster: Added has_secure_password, remmeber function, authenticated? function, and the BCrypt functionality
   has_secure_password
+
+  validates :school_id, presence: true
+  validates :teacher_description, presence: true
   validates :teacher_password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :teacher_password_confirmation, presence: true, length: { minimum: 6 }, allow_nil: true
 

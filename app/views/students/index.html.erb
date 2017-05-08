@@ -1,39 +1,57 @@
-<p id="notice"><%= notice %></p>
+<!--HTML taken from UX Demo Team, edited by Ricky Perez -->
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 content-col">
 
-<h1>Students</h1>
+		<!-- page header -->
+		<div class="page-header vertical-align">
+			<div class="col-xs-11">
+				<h2>All Students<small> - manage students at school TrngPte</small></h2><!-- Dynamically fills in with school id -->
+			</div>
+			<div class="col-xs-1 center-block">
+				<div class="header-sq i-ltblue" title="Turning Pointe Autism Foundation">
+					<span class="fa fa-home fa-3x teacher-icon"></span>
+				</div>
+			</div>
+		</div><!--End page header-->
 
-<table>
-  <thead>
-    <tr>
-      <th>Student icon name</th>
-      <th>Student contact info</th>
-      <th>Student description</th>
-      <th>Student icon</th>
-      <th>Color</th>
-      <th>School</th>
-      <th>Student name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+			<!-- new student button -->
+			<div class="row">
+				<div class="col-xs-3 col-xs-offset-1">
+					<form  action="/students/new.html">
+						<button type="submit" class="col-sm-offset-1 btn btn-lg btn-success">
+							<i class="fa fa-plus-square-o"></i> New Student
+						</button>
+					</form>
+				</div>   <!-- col -->
+			</div>   <!-- row -->
 
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-        <td><%= student.student_icon_name %></td>
-        <td><%= student.student_contact_info %></td>
-        <td><%= student.student_description %></td>
-        <td><%= student.student_icon %></td>
-        <td><%= student.color %></td>
-        <td><%= student.school_id %></td>
-        <td><%= student.student_name %></td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+			<!-- all students table -->
+			<table class="table table-striped table-hover table-responsive schools-table">
+				<thead>
+					<tr>
+						<th>Icon</th>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Last Session</th>
+					</tr>
+				</thead>
+				<tbody>
+				<% @students.each do |student| %>
+					<tr data-link=<%= edit_student_path(student)%>>
+						<td>
+							<div class="table-sq i-<%= student.color%>">
+								<i class="fa fa-<%= student.student_icon%> fa-2x table-icon"></i>
+							</div>
+						</td>
+						<td><p class="listText"><span><%= student.student_icon_name %></span></p></td>
+						<td><p class="listText"><span><%= student.student_name %></span></p></td>
+						<td><p class="listText"><span>Mon Apr 3, 2017</span></p></td>
+						<td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					</tr>
+			 <% end %>
+				</tbody>
+			</table>
+</html>
 
-<%= link_to 'New Student', new_student_path %>

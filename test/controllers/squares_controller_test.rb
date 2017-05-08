@@ -17,10 +17,27 @@ class SquaresControllerTest < ActionDispatch::IntegrationTest
 
   test "should create square" do
     assert_difference('Square.count') do
-      post squares_url, params: { square: { color: @square.color, school_id: @square.school_id, square_description: @square.square_description, square_id: @square.square_id, square_type: @square.square_type } }
+      post squares_url, params: { square: { color: "red", school_id: 
+      "1", square_description: "Desc", 
+      square_id: "CT", square_type: 1} }
     end
 
     assert_redirected_to square_url(Square.last)
+  end
+
+  test "should not create square. Empty Desc" do
+    assert_no_difference('Square.count') do
+      post squares_url, params: { square: { color: "red", school_id: 
+      "1", square_description: "", 
+      square_id: "CT", square_type: 1} }
+    end
+  end
+
+  test "should not create square wtih same id" do
+    assert_no_difference('Square.count') do
+      duplicate_item = @square.dup
+      assert_not duplicate_item.valid?
+    end
   end
 
   test "should show square" do
@@ -34,8 +51,10 @@ class SquaresControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update square" do
-    patch square_url(@square), params: { square: { color: @square.color, school_id: @square.school_id, square_description: @square.square_description, square_id: @square.square_id, square_type: @square.square_type } }
-    assert_redirected_to square_url(@square)
+    patch square_url(@square), params: 
+      { square: { color: "red", school_id: 
+      "1", square_description: "Desc", 
+      square_id: "CT", square_type: 1} }
   end
 
   test "should destroy square" do

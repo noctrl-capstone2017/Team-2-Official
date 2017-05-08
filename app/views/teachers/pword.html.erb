@@ -1,0 +1,61 @@
+<!--Adapted for use by Kevin M. -->
+<div class="page-header cap17-header vertical-align">
+	<div class="col-xs-11">
+		<h2>Change Password<small> - change password for teacher <%= @teacher.teacher_name %></small></h2>
+	</div>
+	<div class="col-xs-1">
+		<div class="header-sq i-plum" title="Bianca17">
+			<span class="fa fa-apple fa-3x teacher-icon "></span>
+		</div>
+	</div>
+</div>
+<!--Main Content-->
+<div class="row">
+	<div class="col-sm-10 col-sm-offset-1">
+<%= form_for(@teacher) do |f| %>
+  <% if @teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+
+      <ul>
+      <% @teacher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	
+	<!-- Existing password -->
+	<div class="row form-row">
+		<div class="col-sm-offset-1 col-sm-2"><h4>Current Password: </h4></div>
+		<div class="col-sm-4 col-sm-offset-0">
+			<%= f.password_field :password, class: 'form-control', id: 'currPass' %>
+		</div>
+	</div>
+	
+	<!-- New password -->
+	<div class="row form-row">
+		<div class="col-sm-offset-1 col-sm-2"><h4>New Password: </h4></div>
+		<div class="col-sm-4 col-sm-offset-0">
+			<!--< %= f.password_field :password, class: 'form-control', id: 'newPass' %>-->
+		</div>
+	</div>
+	
+	<!-- New pass confirmation -->
+	<div class="row form-row">
+		<div class="col-sm-offset-1 col-sm-2"><h4>Confirm New Password: </h4></div>
+		<div class="col-sm-4 col-sm-offset-0">
+		<!--< %= f.password_field :password_confirmation, class: 'form-control', id: 'confPass' %>-->
+		</div>
+	</div>
+	
+	<div class="row action-buttons-row">
+		<div class="col-sm-1 col-sm-offset-1"> 
+			<%= f.submit "Submit", class: "btn btn-success" %>
+		</div>
+<% end %>
+	<div class="col-sm-1 col-sm-offset-1"> 
+		<%= button_to "Cancel", teachers_path, :class => "btn btn-danger", :method => :get %>
+	</div>
+	</div>
+</div><!--End row-->

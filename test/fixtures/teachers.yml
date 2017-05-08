@@ -4,7 +4,7 @@ one:
   user_name: MyString
   teacher_icon_name: MyString
   teacher_name: MyString
-  teacher_email: MyString
+  teacher_email: MyString@myplace.org
   admin_powers: false
   analysis_powers: false
   teacher_description: MyText

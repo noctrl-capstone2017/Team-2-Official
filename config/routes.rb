@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  get 'login_session/new'
-  get 'teachers/home'
+  root "login_session#new"
+  
+  get "teachers/:id/home",  to: 'teachers#home'
+  get "sessions/end"
+  get 'teachers/:id/pword' => 'teachers#pword'
+  
   resources :roster_students
   resources :roster_squares
   resources :session_events
@@ -22,7 +26,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   get '/logout2', to: 'static_pages#logout2'
-    
+
   # route to home page
   
 end
