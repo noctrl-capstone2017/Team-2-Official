@@ -12,8 +12,7 @@ gem 'rails', '~> 5.0.1'
 gem 'bcrypt', '3.1.11'
 #faker is a gem to simulate users!
 gem 'faker',  '1.6.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -42,6 +41,8 @@ gem 'bootstrap-sass', '3.3.6'
 
 
 group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.0', platform: :mri
 end
 
