@@ -2,34 +2,71 @@
 
 <h1>Squares</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Square</th>
-      <th>Square type</th>
-      <th>Square description</th>
-      <th>Color</th>
-      <th>School</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+	<div class="col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 content-col">
 
-  <tbody>
-    <% @squares.each do |square| %>
-      <tr>
+		<!-- page header -->
+		<div class="page-header vertical-align">
+			<div class="col-xs-11">
+				<h2>All Squares<small> - manage behavior squares at TPTE</small></h2><!-- Dynamically fills in with school id -->
+			</div>
+			<div class="col-xs-1 center-block">
+				<div class="header-sq i-ltblue" title="Turning Point Autism Foundation">
+					<span class="fa fa-home fa-3x teacher-icon"></span>
+				</div>
+			</div>
+		</div><!--End page header-->
+
+		<!-- new square button -->
+		<div class="row first-content-row">
+			<div class="col-xs-3 col-xs-offset-1">
+				<form  action="/squares/new.html">
+					<button type="submit" class="col-sm-offset-1 btn btn-lg btn-success">
+						<span class="fa fa-plus-square-o"></span> New Square
+					</button>
+				</form>
+			</div>   <!-- col -->
+		</div>   <!-- row -->
+
+		<!-- all squares table -->
+		<table class="table table-striped table-hover table-responsive schools-table">
+			<thead>
+				<tr>
+					<th>Icon</th>
+					<th>ID</th>
+					<th>Type</th>
+					<th>Description</th>
+					<th>Added by</th>
+				</tr>
+			</thead>
+			<tbody>
+  			<% @squares.each do |square| %>
+  			<tr data-link=<%= edit_square_path(square)%>>
+  				<td>
+  					<div class="table-sq i-<%= square.color %>">
+  						<i class="fa fa-square-o fa-2x table-icon"></i>
+  					</div>
+  				</td>
         <td><%= square.square_id %></td>
-        <td><%= square.square_type %></td>
+        
+        <!-- If statement for translating  square type int into string -->
+        <td>
+          <% if square.square_type == 1 %>
+            <p class="listText">Duration</p>
+          <% elsif square.square_type == 2 %>
+            <p class="listText">Frequency</p>
+          <% else %>
+            <p class="listText">Interval</p>
+          <% end %>
+        </td>
+        
+        <!-- Square Description -->
         <td><%= square.square_description %></td>
-        <td><%= square.color %></td>
-        <td><%= square.school_id %></td>
-        <td><%= link_to 'Show', square %></td>
-        <td><%= link_to 'Edit', edit_square_path(square) %></td>
-        <td><%= link_to 'Destroy', square, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <!--<td><%= link_to 'Destroy', square, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Square', new_square_path %>

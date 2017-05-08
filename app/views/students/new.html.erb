@@ -1,5 +1,13 @@
-<h1>New Student</h1>
-
-<%= render 'form', student: @student %>
-
-<%= link_to 'Back', students_path %>
+<!--HTML taken from UX Demo Team, edited by Ricky Perez -->
+<!-- page header -->
+<div class="page-header vertical-align">
+	<div class="col-xs-11">
+		<h2>New Student<small> - add a new student to school TrngPte</small></h2><!-- Dynamically fills in with school id -->
+	</div>
+	<div class="col-xs-1 center-block">
+		<div class="header-sq i-ltblue" title="Turning Pointe Autism Foundation">
+			<span class="fa fa-home fa-3x teacher-icon"></span>
+		</div>
+	</div>
+</div><!--End page header-->
+<%= render 'form', student: @student, url: "new"%>
