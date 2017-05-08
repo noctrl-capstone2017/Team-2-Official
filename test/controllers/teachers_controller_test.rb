@@ -18,7 +18,7 @@ class TeachersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to "/teachers"
   end
 
-  test "should show teacher" do
+  test "should show teacher roster page" do
     get teacher_url(@teacher)
     assert_response :success
   end
