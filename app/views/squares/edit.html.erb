@@ -1,6 +1,13 @@
-<h1>Editing Square</h1>
+<!-- page header -->
+<div class="page-header vertical-align">
+	<div class="col-xs-11">
+		<h2>Square Profile<small> - view/edit behavior square <%= @square.square_id %></small></h2><!-- Dynamically fills in with school id -->
+	</div>
+	<div class="col-xs-1 center-block">
+		<div class="header-sq i-plum" title="SI">
+			<span class="fa fa-square-o fa-3x teacher-icon"></span>
+		</div>
+	</div>
+</div><!--End page header-->
 
-<%= render 'form', square: @square %>
-
-<%= link_to 'Show', @square %> |
-<%= link_to 'Back', squares_path %>
+<%= render 'form', square: @square, url: "edit" %>

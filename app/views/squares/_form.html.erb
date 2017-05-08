@@ -11,32 +11,73 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :square_id %>
-    <%= f.text_field :square_id %>
-  </div>
 
-  <div class="field">
-    <%= f.label :square_type %>
-    <%= f.number_field :square_type %>
-  </div>
+	<!-- ID field -->
+	<div class="row form-row">
+		<div class="col-sm-1 col-sm-offset-1">
+			<h4> ID:</h4>
+		</div> 
+		<div class="col-sm-1">
+			<%= f.text_field :square_id, class: "form-control" %>
+		</div>
+	</div>   <!-- form-row -->
 
-  <div class="field">
-    <%= f.label :square_description %>
-    <%= f.text_area :square_description %>
-  </div>
+	<!-- type field -->
+ 	<div class="row form-row">
+		<div class="col-sm-1 col-sm-offset-1">
+			<h4>Type: </h4>
+		</div>
+		<div class="col-md-offset-0 col-sm-offset-0 col-sm-2">
+        <%= f.select :square_type, [['Duration', 1],['Frequency', 2],['Interval', 3]] %>
+		</div>
+	</div>   <!-- form-row -->
 
-  <div class="field">
-    <%= f.label :color %>
-    <%= f.text_field :color %>
-  </div>
+	<!-- color field -->
+	<div class="row form-row">
+		<div class="col-sm-1 col-sm-offset-1">
+			<h4>Color: </h4>
+		</div>
+		<div class="col-sm-4 col-md-offset-0 col-sm-offset-0">
+      <%= f.select(:color, ['gray', 'navy','red','yellow',
+      'ltblue','ltorange','green','lavendar','plum','mint','pink',
+      'dkorange','aqua'])%>
+		</div>
+	</div>   <!-- form-row -->
+	
+	<!-- a little extra space before description -->
+	<div class="form-spacer">	&nbsp;</div>
 
-  <div class="field">
-    <%= f.label :school_id %>
-    <%= f.number_field :school_id %>
-  </div>
+	<!-- description field -->
+	<div class="row form-row">
+	 	<div class="col-sm-2 col-sm-offset-1">
+	 		<h4>Description:</h4>
+	 	</div>
+		<div class="col-sm-4">
+			<%= f.text_area :square_description, class:"form-control" %>	
+		</div>
+	</div>   <!-- form-row -->
 
-  <div class="actions">
-    <%= f.submit %>
+	<!--TEMP School ID field -->
+	<div class="row form-row">
+		<div class="col-sm-1 col-sm-offset-1">
+			<h4> ID:</h4>
+		</div> 
+		<div class="col-sm-1">
+			<%= f.number_field :school_id, class: "form-control" %>
+		</div>
+	</div>   <!-- form-row -->
+
+  <div class="row action-buttons-row">
+	  <div class="col-xs-6 col-xs-offset-1 text-center"> 
+      <% if url == "new" %>
+        <%= f.submit "Add New Square", class: "btn btn-success"%>
+						&nbsp; &nbsp; &nbsp;
+	      <%= link_to 'Cancel', squares_path, class: "btn btn-danger" %>
+      <% else %>
+        <%= f.submit "Save Changes", class: "btn btn-success"%>
+        		&nbsp; &nbsp; &nbsp;
+	      <%= link_to 'Cancel', squares_path, class: "btn btn-danger" %>        
+      <% end %>
+    </div>
   </div>
 <% end %>
