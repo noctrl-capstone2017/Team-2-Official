@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   get "teachers/:id/home",  to: 'teachers#home'
   get "sessions/session1"
+  get "sessions/end"
   
   resources :roster_students
   resources :roster_squares

@@ -17,12 +17,16 @@ class TeachersController < ApplicationController
      @teacher = Teacher.find(params[:id])
   end
 
+#author: Matthew O & Alex Pavia
   def home
     @teacher = Teacher.find(params[:id])
+    @top_students = Student.where(id: Session.where(session_teacher: @teacher.id).group('session_student').order('count(*)').select('session_student').limit(8))
     if params[:start_session]
         @session = Session.new
         @session.session_teacher = @teacher.id
         @session.session_student = params[:student_id]
+        @session.start_time = Time.now.updated_at.localtime
+        
         respond_to do |format|
           if @session.save
             format.html { redirect_to @session, notice: 'Session was successfully created.' }
@@ -33,9 +37,10 @@ class TeachersController < ApplicationController
           end
         end
     elsif params[:analyze]
-        # B was pressed
+        # Currently unimplemented will direct to analysis page for the selected student
     end
   end
+  
   # GET /teachers/new
   def new
     @teacher = Teacher.new

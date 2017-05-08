@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   # GET /sessions/1
   # GET /sessions/1.json
   def show
+    @student = Student.find(@session.session_student)
   end
 
   # GET /sessions/new

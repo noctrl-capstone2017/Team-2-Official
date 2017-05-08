@@ -1,128 +1,141 @@
-
-	<div class="container content-col">
-		<!--Side bar -->
-		<div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-			<div class="col-md-12 text-center">
-		  		<div class ="square i-red center-block">
-					 <span class="fa fa-bicycle fa-5x student-icon"></span>
-					 <p><span class="student-icon-text"><%=action_name %></span></p>
-				</div>
-				<!-- show student name -->
-				<h3> <%= Teacher.first.teacher_name %> </h3>
-				<p><%= %></p>
-				<button class="btn btn-primary btn-lg">End Session</button>
-			</div>
-		</div><!--End Sidebar -->
-		<!--Top Buttons-->
-		<div class="row">
-			<div class="col-xs-1">
-				<span onclick="openNav()"><i class="fa fa-chevron-circle-left fa-2x"></i></span>
-			</div>
-			<div class="col-xs-4 pull-right">
-				<button class="btn btn-lg btn-secondary noteBtn"><i class="fa fa-pencil-square-o icon-white fa-lg"></i> Notes</button>
-				<a href="session2.html" class="btn btn-primary btn-lg">End Session</a>
-			</div>
-		</div>
-		<!-- Main Content -->
-		<div id="main">
-		  	<div class="container-fluid">
-		  		<!--------Behavior Square Area------------ -->
-		  		<div class="row behavior-row">
-		  			<div class="col-sm-offset-1 col-xs-4 col-md-3">
-		  				<div class="square i-red text-center">
-		  					<div class="col-xs-12">
-								<h4>AG (2)</h4>
-							</div>
-						</div><!--End Square-->
-					</div><!--End Col -->
-					<div class="col-sm-offset-1 col-xs-4 col-md-3">
-		  				<div class="square i-ltblue text-center">
-							<div class="col-xs-12">
-								<h4>CRY (3)</h4>
-							</div>
-							<div class="col-xs-12">
-								<span class="fa fa-clock-o fa-2x icon-white"></span>
-							</div>
-						</div><!--End Square-->
-					</div><!--End Col -->
-				</div><!--End Row-->
-				<div class="row behavior-row">
-					<div class="col-sm-offset-1 col-xs-4 col-md-3">
-		  				<div class="square i-yellow text-center">
-		  					<div class="col-xs-12">
-								<h4>GT (0)</h4>
-							</div>
-						</div><!--End Square-->
-					</div><!--End Col-->
-					<div class="col-sm-offset-1 col-xs-4 col-md-3">
-		  				<div class="square i-navy text-center">
-		  					<div class="col-xs-12">
-								<h4>YEL (0)</h4>
-							</div>
-							<div class="col-xs-12">
-								<span class="fa fa-clock-o fa-2x icon-white"></span>
-							</div>
-						</div><!--End Square-->
-					</div><!--End Col -->
-				</div><!--End Row -->
-			</div><!--End Fluid Container-->
-		</div><!--End Main -->
-		<!----- Additional Button Area ---------->
-		<div class="row">
-			<div class="col-sm-2 pull-right">
-				<div class="btn btn-danger btn-lg">Undo</div>
-			</div>
-		</div>
-	</div><!-- End Container-->
-	<!-- 5. Jquery: jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
-	<!-- jquery for session -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.js"></script>
-
-	<!-- 5. Bootstrap Javascript: Include all compiled plugins (below), or include individual files as needed -->
-	<!-- Got this from CDN: https://www.bootstrapcdn.com/ -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<script type="text/javascript">
-			$('.noteBtn').on('click', function () {
-				$.confirm({
-					title: 'Notes:',
-					content: '' +
-					'<form action="" class="formName">' +
-					'<div class="form-group">' +
-					'<label>Enter your session notes here</label>' +
-					'<input type="textarea" placeholder="simple note" class="quickNote form-control" required />' +
-					'</div>' +
-					'</form>',
-					buttons: {
-						formSubmit: {
-							text: 'Submit',
-							btnClass: 'btn-blue',
-							action: function () {
-								var note = this.$content.find('.quickNote').val();
-								if (!note) {
-									$.alert('provide a valid note');
-									return false;
-								}
-								$('.notes').append(note + "\n");
-							}
-						},
-						cancel: function () {
-							//close
-						},
-					},
-					onContentReady: function () {
-						// you can bind to the form
-						var jc = this;
-						this.$content.find('form').on('submit', function (e) { // if the user submits the form by pressing enter in the field.
-							e.preventDefault();
-							jc.$$formSubmit.trigger('click'); // reference the button and click it
-						});
-					}
-				});
-			});
-		</script>
-
+<!-- @Author Alexander Pavia + Matthew O -->
+<!-- Sesson 1 page --> 
+<div class="container content-col">
+   <!--Side bar -->
+   <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="col-md-12 text-center">
+         <div class ="square i-red center-block">
+            <span class="fa fa-bicycle fa-5x student-icon"></span>
+            <p><span class="student-icon-text"><%=action_name %></span></p>
+         </div>
+         <!-- show student name -->
+         <h3> <%= Teacher.first.teacher_name %> </h3>
+         <p><%= %></p>
+         <button class="btn btn-primary btn-lg">End Session</button>
+      </div>
+   </div>
+   <!--End Sidebar -->
+   <!--Top Buttons-->
+   <div class="row">
+      <div class="col-xs-1">
+         <span onclick="openNav()"><i class="fa fa-chevron-circle-left fa-2x"></i></span>
+      </div>
+      <div class="col-xs-4 pull-right">
+         <button class="btn btn-lg btn-secondary noteBtn"><i class="fa fa-pencil-square-o icon-white fa-lg"></i> Notes</button>
+         <a href="session2.html" class="btn btn-primary btn-lg">End Session</a>
+      </div>
+   </div>
+   <!-- Main Content -->
+   <div id="main">
+      <div class="container-fluid">
+         <!--------Behavior Square Area------------ -->
+         <div class="row behavior-row">
+            <div class="col-sm-offset-1 col-xs-4 col-md-3">
+               <div class="square i-red text-center">
+                  <div class="col-xs-12">
+                     <h4>AG (2)</h4>
+                  </div>
+               </div>
+               <!--End Square-->
+            </div>
+            <!--End Col -->
+            <div class="col-sm-offset-1 col-xs-4 col-md-3">
+               <div class="square i-ltblue text-center">
+                  <div class="col-xs-12">
+                     <h4>CRY (3)</h4>
+                  </div>
+                  <div class="col-xs-12">
+                     <span class="fa fa-clock-o fa-2x icon-white"></span>
+                  </div>
+               </div>
+               <!--End Square-->
+            </div>
+            <!--End Col -->
+         </div>
+         <!--End Row-->
+         <div class="row behavior-row">
+            <div class="col-sm-offset-1 col-xs-4 col-md-3">
+               <div class="square i-yellow text-center">
+                  <div class="col-xs-12">
+                     <h4>GT (0)</h4>
+                  </div>
+               </div>
+               <!--End Square-->
+            </div>
+            <!--End Col-->
+            <div class="col-sm-offset-1 col-xs-4 col-md-3">
+               <div class="square i-navy text-center">
+                  <div class="col-xs-12">
+                     <h4>YEL (0)</h4>
+                  </div>
+                  <div class="col-xs-12">
+                     <span class="fa fa-clock-o fa-2x icon-white"></span>
+                  </div>
+               </div>
+               <!--End Square-->
+            </div>
+            <!--End Col -->
+         </div>
+         <!--End Row -->
+      </div>
+      <!--End Fluid Container-->
+   </div>
+   <!--End Main -->
+   <!----- Additional Button Area ---------->
+   <div class="row">
+      <div class="col-sm-2 pull-right">
+         <div class="btn btn-danger btn-lg">Undo</div>
+      </div>
+   </div>
+</div>
+<!-- End Container-->
+<!-- 5. Jquery: jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<!-- jquery for session -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.js"></script>
+<!-- 5. Bootstrap Javascript: Include all compiled plugins (below), or include individual files as needed -->
+<!-- Got this from CDN: https://www.bootstrapcdn.com/ -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript">
+   $('.noteBtn').on('click', function () {
+   	$.confirm({
+   		title: 'Notes:',
+   		content: '' +
+   		'<form action="" class="formName">' +
+   		'<div class="form-group">' +
+   		'<label>Enter your session notes here</label>' +
+   		'<input type="textarea" placeholder="simple note" class="quickNote form-control" required />' +
+   		'</div>' +
+   		'</form>',
+   		buttons: {
+   			formSubmit: {
+   				text: 'Submit',
+   				btnClass: 'btn-blue',
+   				action: function () {
+   					var note = this.$content.find('.quickNote').val();
+   					if (!note) {
+   						$.alert('provide a valid note');
+   						return false;
+   					}
+   					$('.notes').append(note + "\n");
+   				}
+   			},
+   			cancel: function () {
+   				//close
+   			},
+   		},
+   		onContentReady: function () {
+   			// you can bind to the form
+   			var jc = this;
+   			this.$content.find('form').on('submit', function (e) { // if the user submits the form by pressing enter in the field.
+   				e.preventDefault();
+   				jc.$$formSubmit.trigger('click'); // reference the button and click it
+   			});
+   		}
+   	});
+   });
+</script>
 </body>
 </html>
