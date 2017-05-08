@@ -9,110 +9,121 @@
 		</div>
 	</div>
 </div>
+
 <!-- Teacher profile area -->
 <%= form_for(@teacher) do |f| %>
+  <% if @teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
 
-<!-- Placeholder school_id input. REMOVE LATER!! -->
-<div class="row form-row">
-<div class="col-xs-1 col-xs-offset-1"><h4>school_id<br>placeholder</h4></div>
-<div class="col-xs-4 col-xs-offset-1">
-		<%= f.number_field :school_id, class: 'form-control'%>
-	</div>
-</div>   <!-- row -->
-
-<p>Note from Kevin M: The school_id will not be here in the future.</p>
-<p>We're going to pull the ID from the admin accessing this page.</p>
-<p>In the meantime, just so you can make teachers, it's an option here.</p>
-<br> Errors: <%= @teacher.errors.full_messages %>
-
-<div class="row form-row">
-	<!-- Teacher ID -->
-	<div class="col-sm-2 col-sm-offset-1"><h4> Teacher ID: </h4></div>
-	<div class="col-sm-2">
-		<%= f.text_field :user_name, class: 'form-control', id: 'teacherID' %>
-	</div>
-</div>
-
-<!-- Teacher name field -->
-<div class="row form-row">
-<div class="col-xs-1 col-xs-offset-1"><h4>Name: </h4></div>
-<div class="col-xs-4 col-xs-offset-1">
-		<%= f.text_field :teacher_name, class: 'form-control', id: 'teacherName' %>
-	</div>
-</div>   <!-- row -->
-
-<!-- Teacher Email -->
-<div class="row form-row">
-	<div class="col-sm-offset-1 col-sm-2"><h4>Email: </h4></div>
-
-	<div class="col-sm-4 col-sm-offset-0">
-		<%= f.email_field :teacher_email, class: 'form-control', id: 'email' %>
-	</div>
-</div>
-
-<!-- Teacher password -->
-<div class="row form-row">
-	<div class="col-sm-offset-1 col-sm-2"><h4>Password: </h4></div>
-
-	<div class="col-sm-4 col-sm-offset-0">
-		<!--<input type="password" class="form-control" id="password"> Temporarily commented out until the model is updated.-->
-	</div>
-</div>
-
-<!--Teacher Admin -->
-<div class="row form-row vertical-align">
-	<div class="col-sm-offset-3 col-sm-2"><h4>Admin</h4></div>
-	<%= f.check_box :admin_powers, class: 'form-control' %>
-
-	<div class="col-sm-offset-0 col-sm-2"><h4>Analysis </h4></div>
-	<%= f.check_box :analysis_powers, class: 'form-control' %>
-</div>
-
-<!-- a little extra space after name/email -->
-<div class="form-spacer">	&nbsp;</div>
-
-<div class="row form-row vertical-align">
-	<div class="col-sm-offset-1 col-sm-2"><h4>Color: </h4></div>
-
-	<div class="col-sm-4 col-sm-offset-0">
-		<%= f.select :color, options_for_select([
-		"Cyan", 
-		"Blue", 
-		"Red", 
-		"Yellow"]), 
-		class: 'form-control' %>
-	</div>
-</div>
-
-<!-- teacher icon field -->
-<div class="row form-row">
-	<div class="col-xs-1 col-xs-offset-1"><h4>Icon: </h4></div>
+      <ul>
+      <% @teacher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+	<!-- Placeholder school_id input. REMOVE LATER!! -->
+	<div class="row form-row">
+	<div class="col-xs-1 col-xs-offset-1"><h4>school_id<br>placeholder</h4></div>
 	<div class="col-xs-4 col-xs-offset-1">
-		<%= f.select :teacher_icon_name, options_for_select([
-		"Apple", 
-		"Graduation Hat", 
-		"Book", 
-		"Pencil"]), 
-		class: 'form-control' %>
+			<%= f.number_field :school_id, class: 'form-control'%>
+		</div>
+	</div>   <!-- row -->
+	
+	<p>Note from Kevin M: The school_id will not be here in the future.</p>
+	<p>We're going to pull the ID from the admin accessing this page.</p>
+	<p>In the meantime, just so you can make teachers, it's an option here.</p>
+	
+	<div class="row form-row">
+		<!-- Teacher ID -->
+		<div class="col-sm-2 col-sm-offset-1"><h4> Teacher ID: </h4></div>
+		<div class="col-sm-2">
+			<%= f.text_field :user_name, class: 'form-control', id: 'teacherID' %>
+		</div>
 	</div>
-</div>
-
-<div class="row form-row">
-	<div class="col-sm-offset-1 col-sm-2"><h4>Description: </h4></div>
-
-	<div class="col-sm-6 col-sm-offset-0">
-		<%= f.text_field :teacher_description, class: 'form-control', id: 'Description' %>
+	
+	<!-- Teacher name field -->
+	<div class="row form-row">
+	<div class="col-xs-1 col-xs-offset-1"><h4>Name: </h4></div>
+	<div class="col-xs-4 col-xs-offset-1">
+			<%= f.text_field :teacher_name, class: 'form-control', id: 'teacherName' %>
+		</div>
+	</div>   <!-- row -->
+	
+	<!-- Teacher Email -->
+	<div class="row form-row">
+		<div class="col-sm-offset-1 col-sm-2"><h4>Email: </h4></div>
+	
+		<div class="col-sm-4 col-sm-offset-0">
+			<%= f.email_field :teacher_email, class: 'form-control', id: 'email' %>
+		</div>
 	</div>
-</div>  
-
-<div class="row form-row">
-	<div class="col-sm-1 col-sm-offset-1"><br></div>
-</div>
-
-<div class="row action-buttons-row">
-	<div class="col-sm-1 col-sm-offset-1"> 
-		<%= f.submit "Add New Teacher", class: "btn btn-success" %>
+	
+	<!-- Teacher password -->
+	<div class="row form-row">
+		<div class="col-sm-offset-1 col-sm-2"><h4>Password: </h4></div>
+	
+		<div class="col-sm-4 col-sm-offset-0">
+			<!--<input type="password" class="form-control" id="password"> Temporarily commented out until the model is updated.-->
+		</div>
 	</div>
+	
+	<!--Teacher Admin -->
+	<div class="row form-row vertical-align">
+		<div class="col-sm-offset-3 col-sm-2"><h4>Admin</h4></div>
+		<%= f.check_box :admin_powers, class: 'form-control' %>
+	
+		<div class="col-sm-offset-0 col-sm-2"><h4>Analysis </h4></div>
+		<%= f.check_box :analysis_powers, class: 'form-control' %>
+	</div>
+	
+	<!-- a little extra space after name/email -->
+	<div class="form-spacer">	&nbsp;</div>
+	
+	<div class="row form-row vertical-align">
+		<div class="col-sm-offset-1 col-sm-2"><h4>Color: </h4></div>
+	
+		<div class="col-sm-4 col-sm-offset-0">
+			<%= f.select :color, options_for_select([
+			"Cyan", 
+			"Blue", 
+			"Red", 
+			"Yellow"]), 
+			class: 'form-control' %>
+		</div>
+	</div>
+	
+	<!-- teacher icon field -->
+	<div class="row form-row">
+		<div class="col-xs-1 col-xs-offset-1"><h4>Icon: </h4></div>
+		<div class="col-xs-4 col-xs-offset-1">
+			<%= f.select :teacher_icon_name, options_for_select([
+			"Apple", 
+			"Graduation Hat", 
+			"Book", 
+			"Pencil"]), 
+			class: 'form-control' %>
+		</div>
+	</div>
+	
+	<div class="row form-row">
+		<div class="col-sm-offset-1 col-sm-2"><h4>Description: </h4></div>
+	
+		<div class="col-sm-6 col-sm-offset-0">
+			<%= f.text_field :teacher_description, class: 'form-control', id: 'Description' %>
+		</div>
+	</div>  
+	
+	<div class="row form-row">
+		<div class="col-sm-1 col-sm-offset-1"><br></div>
+	</div>
+	
+	<div class="row action-buttons-row">
+		<div class="col-sm-1 col-sm-offset-1"> 
+			<%= f.submit "Add New Teacher", class: "btn btn-success" %>
+		</div>
 <% end %>
 	<div class="col-sm-1 col-sm-offset-1"> 
 		<%= button_to "Cancel", teachers_path, :class => "btn btn-danger", :method => :get %>
