@@ -10,7 +10,11 @@ class TeachersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create teacher" do
     assert_difference('Teacher.count') do
-      post teachers_url, params: { teacher: { admin_powers: @teacher.admin_powers, analysis_powers: @teacher.analysis_powers, color: @teacher.color, school_id: @teacher.school_id, teacher_description: @teacher.teacher_description, teacher_email: "email@example.com", teacher_icon_name: @teacher.teacher_icon_name, teacher_name: @teacher.teacher_name, user_name: @teacher.user_name } }
+      post teachers_url, params: { teacher: { admin_powers: @teacher.admin_powers, 
+      analysis_powers: @teacher.analysis_powers, color: @teacher.color, 
+      school_id: @teacher.school_id, teacher_description: @teacher.teacher_description, 
+      teacher_email: "email@example.com", teacher_icon_name: @teacher.teacher_icon_name, 
+      teacher_name: @teacher.teacher_name, user_name: @teacher.user_name } }
     end
     assert_redirected_to teacher_url(Teacher.last)
   end
@@ -22,7 +26,19 @@ class TeachersControllerTest < ActionDispatch::IntegrationTest
   
   test "should reject invalid email" do
     assert_no_difference('Teacher.count') do
-      post teachers_url, params: { teacher: { admin_powers: @teacher.admin_powers, analysis_powers: @teacher.analysis_powers, color: @teacher.color, school_id: @teacher.school_id, teacher_description: @teacher.teacher_description, teacher_email: @teacher.teacher_email, teacher_icon_name: @teacher.teacher_icon_name, teacher_name: @teacher.teacher_name, user_name: @teacher.user_name } }
+      post teachers_url, params: { teacher: { admin_powers: @teacher.admin_powers, 
+        analysis_powers: @teacher.analysis_powers, color: @teacher.color, 
+        school_id: @teacher.school_id, teacher_description: @teacher.teacher_description, 
+        teacher_email: "its email!", teacher_icon_name: @teacher.teacher_icon_name, 
+        teacher_name: @teacher.teacher_name, user_name: @teacher.user_name } }
     end
+  end
+  
+  test "should properly load existing info when loading profile" do
+    get teacher_url(@teacher)
+    assert_template "teachers/show"
+    #This is all that's necessary, since if one part of it fails, all of it does.
+    assert_select 'h2', text: 'Teacher profile for ' + @teacher.teacher_name
+    
   end
 end

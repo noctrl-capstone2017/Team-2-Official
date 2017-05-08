@@ -1,3 +1,4 @@
+<!--Adapted for use by Kevin M. -->
 <!-- page header -->
 <div class="page-header vertical-align">
 	<p id="notice"><%= notice %></p>
@@ -14,11 +15,8 @@
 	<!--New Teacher Button-->
 <div class="row first-content-row">
 	<div class="col-xs-3">
-		<form action="">
-			<button type="submit" class="col-sm-offset-1 btn btn-lg btn-success"><i class="fa fa-plus-square-o"></i>  
-			New Teacher</button>
-			<br>WARNING! The delete button doesn't work yet! It won't be here, anyway. -Kevin M
-		</form>
+		<%= button_to "New Teacher", new_teacher_path,
+    :class => "col-sm-offset-1 btn btn-lg btn-success", :method => :get %>
 	</div><!--End col-->
 </div><!--End row -->
 
@@ -44,12 +42,10 @@
 			<td><p class="listText"><%= teacher.user_name %></p></td>
 			<td><p class="listText"><span><%= teacher.teacher_name %></span></p></td>
 			<td><p class="listText"><span><%= teacher.admin_powers %></span></p></td>
-			<!--Don't worry, this messy line of code is placeholder.-->
-			<td><p class="listText"><span><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %><br><%= link_to 'Show', teacher %><br><%= link_to 'Edit', edit_teacher_path(teacher) %></span></p></td>
+			<!--This will hold the teacher's last logged in date.-->
+			<td><p class="listText"><span></span></p>
+			</td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
-
-<!-- Also placeholder -->
-<%= link_to 'New Teacher', new_teacher_path %>
