@@ -4,7 +4,7 @@
 		<h2>Student Roster<small> - students accessible to teacher <%= @teacher.teacher_name%></small></h2>
 	</div>
 	<div class="col-xs-1">
-		<div class="header-sq i-plum" title="Bianca17">
+		<div class="header-sq i-plum" title=<%= @teacher.teacher_name%>>
 			<span class="fa fa-apple fa-3x teacher-icon "></span>
 		</div>
 	</div>
@@ -26,10 +26,7 @@
 				<div class="form-group col-sm-7">
 					<label for="addStud">Add student to roster</label>
 					<select class="form-control" id="addStud">
-						<option>WillieP</option>
-						<option>JimmyK</option>
-						<option>JohnnyP</option>
-						<option>AlisonB</option>
+						<option>Not Implemented</option>
 					</select>
 				</div>
 				<div class="col-sm-1">
@@ -40,10 +37,7 @@
 				<div class="form-group col-sm-7">
 					<label for="removeStud">Remove student from roster</label>
 					<select class="form-control" id="removeStud">
-						<option>JasonX</option>
-						<option>JimmyK</option>
-						<option>JohnnyP</option>
-						<option>AlisonB</option>
+						<option>Not Implemented</option>
 					</select>
 				</div>
 				<div class="col-sm-1">
@@ -61,55 +55,5 @@
 </div>
 <div id="student-roster" class="pre-scrollable container-fluid"> <!--Student display area -->
 	<div class="row students-row">
-		<div class="col-xs-2 text-center">
-		 <div class ="profile-sq i-navy center-block">
-			 <span class="fa fa-graduation-cap fa-3x student-icon "></span>
-		  </div>
-		  <p><span class="student-icon-text">WillieP</span></p>
-		</div>
-		<div class="col-xs-2 text-center">
-			<div class ="profile-sq i-red center-block">
-				<span class="fa fa-child fa-3x student-icon"></span>
-			</div>
-			<p><span class="student-icon-text">TateM</span></p>
-		</div>   <!-- col -->
-		<div class="col-xs-2 text-center">
-			<div class ="profile-sq i-yellow center-block">
-				<span class="fa fa-futbol-o fa-3x student-icon"></span>
-			</div>
-			<p><span class="student-icon-text">SarahL2</span></p>
-		</div>   <!-- col -->
-		<div class="col-xs-2 text-center">
-			<div class ="profile-sq i-ltblue center-block">
-				<span class="fa fa-leaf fa-3x student-icon"></span>
-			</div>
-			<p><span class="student-icon-text">AllyW</span></p>
-		</div>   <!-- col -->
-		<div class="col-xs-2 text-center">
-			<div class ="profile-sq i-pink center-block">
-				<span class="fa fa-gamepad fa-3x student-icon"></span>
-			</div>
-			<p><span class="student-icon-text">EugeneB</span></p>
-		</div>   <!-- col -->
-		<div class="col-xs-2 text-center col-md-2">
-			<div class =" profile-sq i-lavendar center-block">
-				<span class="fa fa-paper-plane fa-3x student-icon "></span>
-			</div>
-			<p><span class="student-icon-text">LexiP</span></p>
-		</div>	<!-- col -->
-	</div>   <!-- row -->
-	<div class="row students-row">
-		<div class="col-xs-2 text-center">
-			<div class ="profile-sq i-dkorange center-block">
-				<span class="fa fa-flash fa-3x student-icon"></span>
-			</div>
-			<p><span class="student-icon-text">JohnnyV</span></p>
-		</div>   <!-- col -->
-		<div class="col-xs-2 text-center">
-			<div class ="profile-sq i-green center-block">
-				<span class="fa fa-car fa-3x student-icon"></span>
-			</div>
-			<p><span class="student-icon-text ">JimmyC</span></p>
-		</div>   <!-- col -->
 	</div>   <!-- row -->
 </div> <!--End Student Roster -->
