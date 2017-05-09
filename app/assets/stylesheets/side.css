@@ -1,3 +1,8 @@
+/* NOTE FROM KEVIN M: If you're here wondering why sidenav text isn't white,
+                      it's because I had to comment it out after it caused issues
+                      with unrelated headers and paragraph text. I'm not sure
+                      what was causing it.*/
+
 /***********************************************************
 * Collapsible Sidebar CSS Stylesheet Document 
 *  W3 Schools Tutorial: How TO - Side Navigation
@@ -38,11 +43,13 @@
     color: #97EDEC; /*Light Blue*/
 }
 
-/* Added styling for text */
+/* Added styling for text 
 .sidenav p, h1, h2, h3, h4
 {
 	color:#FFFFFF;
-}
+} NOTE FROM KEVIN M: Temporarily commented out due to site formatting issues.
+                     It was making all headers and p text white.*/
+
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
     position: absolute;
