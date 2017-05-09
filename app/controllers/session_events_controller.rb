@@ -40,6 +40,11 @@ class SessionEventsController < ApplicationController
   # PATCH/PUT /session_events/1
   # PATCH/PUT /session_events/1.json
   def update
+    @sessions = SessionEvent.find(params[:id])
+    if @sessions.update_attributes(session_event_params)
+      flash[:success] = "Your session has been updated"
+      redirect_to @sessions
+    end
     respond_to do |format|
       if @session_event.update(session_event_params)
         format.html { redirect_to @session_event, notice: 'Session event was successfully updated.' }

@@ -9,10 +9,10 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
+gem 'bcrypt', '3.1.11'
 #faker is a gem to simulate users!
 gem 'faker',  '1.6.6'
-# Use sqlite3 as the database for Active Recordf
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -35,12 +35,15 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '4.0.0.alpha3'
+gem 'bootstrap-sass', '3.3.6'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 
 group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.0', platform: :mri
 end
 
@@ -59,6 +62,9 @@ end
 #Required for testing assert_template.
 group :test do
   gem 'rails-controller-testing', '0.1.1'
+  gem 'minitest-reporters',       '1.1.9'
+  gem 'guard',                    '2.13.0'
+  gem 'guard-minitest',           '2.4.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

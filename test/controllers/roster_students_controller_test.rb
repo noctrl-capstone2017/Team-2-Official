@@ -16,7 +16,7 @@ class RosterStudentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create roster_student" do
-    assert_difference('RosterStudent.count') do
+    assert_difference('RosterStudent.count', 1) do
       post roster_students_url, params: { roster_student: { student_id: @roster_student.student_id, teacher_id: @roster_student.teacher_id } }
     end
 

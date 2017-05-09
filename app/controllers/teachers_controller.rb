@@ -60,7 +60,7 @@ class TeachersController < ApplicationController
   # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
-
+    
     respond_to do |format|
       if @teacher.save
         format.html { redirect_to teachers_url, notice: 'Teacher was successfully created.' }
@@ -71,6 +71,7 @@ class TeachersController < ApplicationController
       end
     end
   end
+  
 
   # PATCH/PUT /teachers/1
   # PATCH/PUT /teachers/1.json
@@ -97,6 +98,13 @@ class TeachersController < ApplicationController
   end
 
   private
+  
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def teacher_params
+      # Steven Royster: Changed the teacher_params. Got rid of a lot of them in an attempt to fix login.
+      params.require(:teacher).permit(:user_name, :teacher_password)
+    end
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_teacher
       @teacher = Teacher.find(params[:id])
